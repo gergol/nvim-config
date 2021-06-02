@@ -1,0 +1,29 @@
+
+snippet vimspector_config_python "Create default python config for vimspector.json" b
+{
+	"configurations": {
+		"current file": {
+			"adapter": "debugpy",
+			"configuration": {
+				"name": "current file",
+				"type": "python",
+				"request": "launch",
+				"cwd": "${workspaceRoot}",
+				"python": "/home/gerald/.virtualenvs/${1:notumpy}/bin/python",
+				"stopOnEntry": false,
+				"console": "internalConsole",
+				"debugOptions": [],
+				"program": "${script:${file\\\\}}"
+			}
+		}
+	}
+}
+endsnippet
+
+snippet pyrightconfig "Create default config for pyrightconfig.json" b
+{
+    "venvPath": "/home/gerald/.virtualenvs",
+    "venv": "${1:notumpy}"
+}
+endsnippet
+
