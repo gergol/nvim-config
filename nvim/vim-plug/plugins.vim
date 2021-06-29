@@ -5,6 +5,8 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
+Plug 'tmhedberg/SimpylFold'
+
 "Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -19,8 +21,9 @@ Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-"Plug 'glepnir/lspsaga.nvim'
-
+Plug 'glepnir/lspsaga.nvim'
+"Plug 'RishabhRD/popfix'
+"Plug 'RishabhRD/nvim-lsputils'
 " Debugger Plugins
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
@@ -30,11 +33,18 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-media-files.nvim'
+
 
 Plug 'mhinz/vim-startify'
 
 Plug 'tpope/vim-fugitive'
 
+" indentation selection support
+Plug 'michaeljsmith/vim-indent-object'
+
+" Parenthesis etc. matching
+Plug 'andymass/vim-matchup'
 " Markdown support
 "Plug 'SidOfc/mkdx'
 

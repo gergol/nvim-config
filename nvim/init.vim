@@ -10,7 +10,7 @@ set noswapfile
 set scrolloff=7
 set backspace=indent,eol,start
 
-set undofile
+"set undofile
 " set hidden is necessary for lsp go to definition to work
 " with unsaved buffers
 set hidden
@@ -23,6 +23,8 @@ set smartindent
 "set columns=120
 set wrap
 set linebreak
+
+
 
 set fileformat=unix
 
@@ -89,3 +91,8 @@ let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
 "
 " Ultisnips
 source $HOME/.config/nvim/plug-config/ultisnips.vim
+
+
+set foldmethod=indent
+set foldlevel=20
+set foldclose=all

@@ -1,5 +1,13 @@
+" Map [ and ] to ü and +  (where they are on the QWERTY layout)
+"nnoremap ü [
+"nnoremap + ]
+"nnoremap ´ +
+"imap ü [
+"imap Ü {
+"imap + ]
+"imap * [
 
-" NERDCommenter
+"" NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
@@ -24,7 +32,8 @@ nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_tra
 nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
-nmap <F5> :wa  <CR> <Plug>VimspectorContinue
+" F5 is be usable also in insert mode
+map <F5> :wa  <CR> <Plug>VimspectorContinue
 nmap <leader><F5> <Plug>VimspectorPause
 
 nmap <F7> <Plug>VimspectorStepInto
@@ -134,3 +143,8 @@ fun! ToggleQFList(global)
         end
     endif
 endfun
+
+" lspsaga:
+nnoremap <silent><leader><CR> :Lspsaga code_action<CR>
+vnoremap <silent><leader><CR> :<C-U>Lspsaga range_code_action<CR>
+
