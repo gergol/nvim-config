@@ -29,7 +29,7 @@ nnoremap <leader>dt :call GotoWindowNoMax(g:vimspector_session_windows.tagpage)<
 nnoremap <leader>dv :call GotoWindowNoMax(g:vimspector_session_windows.variables)<CR>
 nnoremap <leader>dw :call GotoWindowNoMax(g:vimspector_session_windows.watches)<CR>
 nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<CR>
-nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
 " F5 is be usable also in insert mode

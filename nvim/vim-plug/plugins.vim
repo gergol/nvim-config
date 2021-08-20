@@ -35,11 +35,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-media-files.nvim'
 
-
 Plug 'mhinz/vim-startify'
 
 Plug 'tpope/vim-fugitive'
-
 " indentation selection support
 Plug 'michaeljsmith/vim-indent-object'
 

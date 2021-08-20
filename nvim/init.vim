@@ -40,6 +40,9 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Mimic Vim8 Terminal escape
 :tnoremap <C-w> <C-\><C-n><CR><C-l><C-w><Cr>
 
+" Set ignore whitesace for diff
+set diffopt+=iwhite
+
 " Load Plugins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
