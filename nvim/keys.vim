@@ -68,15 +68,15 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " LSP config (the mappings used in the default file don't quite work right)
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
+"nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+"nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+"nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+"nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+"nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+"nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
 
 """ Save/leave edit mode stuff"""
 " Press ww to do a w!
@@ -101,14 +101,14 @@ nmap <leader>gs :G<CR>
 " Autocomplete keys
 "
 
-"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <TAB>     compe#confirm('<CR>') 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+""inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+""inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>     compe#confirm('<CR>') 
+"inoremap <silent><expr> <C-Space> compe#complete()
+""inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+"inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+"inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+"inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Stuff for quick fix lists
 " Taken from

@@ -50,15 +50,20 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/lsp/lsp-config.lua
-" luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
-luafile $HOME/.config/nvim/lua/lsp/clangd-ls.lua
-luafile $HOME/.config/nvim/lua/lsp/cmake-ls.lua
-luafile $HOME/.config/nvim/lua/lsp/json-ls.lua
-luafile $HOME/.config/nvim/lua/lsp/html-ls.lua
-luafile $HOME/.config/nvim/lua/lsp/python-ls.lua
-luafile $HOME/.config/nvim/lua/lsp/vim-ls.lua
 
-" Setup ALL key bindings for the whole system
+"luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
+"n
+"" NB: the following files are disabled as the setup 
+"" of the lsp servers is now done in the lsp-config.vim file.
+"" Otherwise, these here would override the definitions therein.
+"luafile $HOME/.config/nvim/lua/lsp/clangd-ls.lua
+"luafile $HOME/.config/nvim/lua/lsp/cmake-ls.lua
+"luafile $HOME/.config/nvim/lua/lsp/json-ls.lua
+"luafile $HOME/.config/nvim/lua/lsp/html-ls.lua
+"luafile $HOME/.config/nvim/lua/lsp/python-ls.lua
+"luafile $HOME/.config/nvim/lua/lsp/vim-ls.lua
+
+"" Setup ALL key bindings for the whole system
 source $HOME/.config/nvim/keys.vim
 
 colorscheme onedark
