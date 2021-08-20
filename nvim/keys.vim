@@ -105,19 +105,24 @@ nmap <leader>gs :G<CR>
 ""inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "inoremap <silent><expr> <TAB>     compe#confirm('<CR>') 
 "inoremap <silent><expr> <C-Space> compe#complete()
-""inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-"inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-"inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-"inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+"inoremap <silent><expr> <TAB> pumvisible() ? "<C-y>" : "<TAB>"
+"inoremap <silent><expr> <TAB> pumvisible() ? compe#confirm('<CR>') : "<TAB>"
+"inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+"
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <tab>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Stuff for quick fix lists
 " Taken from
 " https://github.com/awesome-streamers/awesome-streamerrc/blob/master/ThePrimeagen/plugin/navigation.vim
 "
-nnoremap <C-k> :cnext<CR>zz
-nnoremap <C-j> :cprev<CR>zz
-nnoremap <leader>k :lnext<CR>zz
-nnoremap <leader>j :lprev<CR>zz
+nnoremap <C-j> :cnext<CR>zz
+nnoremap <C-k> :cprev<CR>zz
+nnoremap <leader>j :lnext<CR>zz
+nnoremap <leader>k :lprev<CR>zz
 nnoremap <C-q> :call ToggleQFList(1)<CR>
 nnoremap <leader>q :call ToggleQFList(0)<CR>
 

@@ -65,6 +65,7 @@ luafile $HOME/.config/nvim/lua/lsp/lsp-config.lua
 
 "" Setup ALL key bindings for the whole system
 source $HOME/.config/nvim/keys.vim
+source $HOME/.config/nvim/plug-config/nvim-autopairs.vim
 
 colorscheme onedark
 let g:airline_theme='onedark'
@@ -98,7 +99,7 @@ let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
 "source $HOME/.config/nvim/plug-config/telescope.vim
 "
 " Ultisnips
-source $HOME/.config/nvim/plug-config/ultisnips.vim
+"source $HOME/.config/nvim/plug-config/ultisnips.vim
 
 
 set foldmethod=indent

@@ -9,19 +9,19 @@ Plug 'tmhedberg/SimpylFold'
 
 "Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/friendly-snippets'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
+"Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'
 " Debugger Plugins
@@ -42,7 +42,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'michaeljsmith/vim-indent-object'
 
 " Parenthesis etc. matching
-Plug 'andymass/vim-matchup'
+Plug 'windwp/nvim-autopairs'
+"Plug 'andymass/vim-matchup'
 " Markdown support
 "Plug 'SidOfc/mkdx'
 
