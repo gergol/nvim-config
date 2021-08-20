@@ -51,7 +51,7 @@ Plug 'windwp/nvim-autopairs'
 " Need to call the following after PlugInstall: :call mkdp#util#install()
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
+"Plug 'kyazdani42/nvim-web-devicons'
 " According to doc this plugin should be loaded at the very end
 " Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
