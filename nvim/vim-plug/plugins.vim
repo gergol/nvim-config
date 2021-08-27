@@ -48,9 +48,13 @@ Plug 'windwp/nvim-autopairs'
 "Plug 'SidOfc/mkdx'
 
 " Markdown preview
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Need to call the following after PlugInstall: :call mkdp#util#install()
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+"
+" NOTE: this next line requires yarn to be installed. If this makes trouple, just comment it out it and live without markdown preview.
+" Unfortunately the prebuilt binaries seem not to work on my main system.
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Plug 'kyazdani42/nvim-web-devicons'
 " According to doc this plugin should be loaded at the very end
 " Plug 'ryanoasis/vim-devicons'

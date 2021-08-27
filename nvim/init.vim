@@ -96,11 +96,12 @@ source $HOME/.config/nvim/plug-config/vimspector.vim
 
 let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
 
-"source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/telescope.vim
 "
 " Ultisnips
 "source $HOME/.config/nvim/plug-config/ultisnips.vim
 
+"source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
 
 set foldmethod=indent
 set foldlevel=20
