@@ -46,12 +46,13 @@ set diffopt+=iwhite
 " Load Plugins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+"luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
 " Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/lsp/lsp-config.lua
-
-"luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
+luafile $HOME/.config/nvim/lua/nvim-treesitter-conf.lua
+luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
 "n
 "" NB: the following files are disabled as the setup 
 "" of the lsp servers is now done in the lsp-config.vim file.
@@ -67,11 +68,14 @@ luafile $HOME/.config/nvim/lua/lsp/lsp-config.lua
 source $HOME/.config/nvim/keys.vim
 source $HOME/.config/nvim/plug-config/nvim-autopairs.vim
 
-colorscheme onedark
-let g:airline_theme='onedark'
+"colorscheme onedark
+"let g:airline_theme='onedark'
 
 "colorscheme gruvbox
 "let g:airline_theme='gruvbox'
+
+colorscheme sonokai
+let g:airline_theme='sonokai'
 
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
@@ -102,6 +106,7 @@ source $HOME/.config/nvim/plug-config/telescope.vim
 "source $HOME/.config/nvim/plug-config/ultisnips.vim
 
 "source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
+
 
 set foldmethod=indent
 set foldlevel=20

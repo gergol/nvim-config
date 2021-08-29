@@ -6,9 +6,14 @@ call plug#begin(stdpath('data') . '/plugged')
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
 Plug 'tmhedberg/SimpylFold'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 
+" Color schemes
+Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
+
+
 "Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
@@ -57,6 +62,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Plug 'kyazdani42/nvim-web-devicons'
 " According to doc this plugin should be loaded at the very end
-" Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
 call plug#end()
