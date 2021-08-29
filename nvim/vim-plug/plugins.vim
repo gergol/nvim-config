@@ -34,6 +34,8 @@ Plug 'glepnir/lspsaga.nvim'
 " Debugger Plugins
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+Plug 'voldikss/vim-floaterm'
+
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'

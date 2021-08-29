@@ -43,6 +43,14 @@ nmap <leader><F8> <Plug>VimspectorRunToCursorRunToCursor
 nmap <F9> <Plug>VimspectorToggleBreakpoint
 nmap <leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
 
+nnoremap   <silent>   <leader>tn    :FloatermNew<CR>
+tnoremap   <silent>   <leader>tn    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <leader>tk   :FloatermPrev<CR>
+tnoremap   <silent>   <leader>tk    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <leader>tj    :FloatermNext<CR>
+tnoremap   <silent>   <leader>tj    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <leader>tt   :FloatermToggle<CR>
+tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
 
 "nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
