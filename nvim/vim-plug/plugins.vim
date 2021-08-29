@@ -16,6 +16,8 @@ Plug 'sainnhe/sonokai'
 
 "Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
