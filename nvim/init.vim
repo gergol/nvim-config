@@ -28,6 +28,9 @@ set wrap
 set linebreak
 
 
+set foldmethod=indent
+set foldlevel=20
+set foldclose=all
 
 set fileformat=unix
 
@@ -46,11 +49,15 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Set ignore whitesace for diff
 set diffopt+=iwhite
 
+let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
+
+
+
 " Load Plugins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
-"luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
-" Configurations
+""luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
+"" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
 luafile $HOME/.config/nvim/lua/lsp/lsp-config.lua
@@ -101,7 +108,6 @@ let g:airline#extensions#tabline#fnamemode=':t'
 " Vimspector debugging plugin
 source $HOME/.config/nvim/plug-config/vimspector.vim
 
-let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
 
 source $HOME/.config/nvim/plug-config/telescope.vim
 "
@@ -111,6 +117,3 @@ source $HOME/.config/nvim/plug-config/telescope.vim
 "source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
 
 
-set foldmethod=indent
-set foldlevel=20
-set foldclose=all
