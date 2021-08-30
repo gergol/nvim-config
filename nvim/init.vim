@@ -2,6 +2,8 @@
 "let &packpath = &runtimepath
 "source ~/.vimrc
 " Mostly taken from this tutorial : https://youtu.be/wzrZPcwh-bE
+
+
 set encoding=utf-8
 "set guifont=Hack\ 13
 set number relativenumber
@@ -17,6 +19,7 @@ set hidden
 
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
