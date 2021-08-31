@@ -12,7 +12,7 @@ nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " NerdTree
-nmap <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " Tabs
 nmap <leader>1 :bp<CR>

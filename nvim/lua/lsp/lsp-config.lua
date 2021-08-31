@@ -26,8 +26,19 @@ require'compe'.setup {
     snippets_nvim = true;
     treesitter = true;
     ultisnips = true;
+    tabnine = {
+
+      max_line = 1000;
+      max_num_results = 6;
+      priority = 5000;
+      -- setting sort to false means compe will leave tabnine to sort the completion items
+      sort = false;
+      show_prediction_strength = true;
+      ignore_pattern = '[(:]';
+    }
   };
 }
+
 
 --This line is important for auto-import
 --vim.api.nvim_set_keymap('i', '<tab>', 'compe#confirm(luaeval("require \'nvim-autopairs\'.autopairs_cr()"))', { expr = true })
