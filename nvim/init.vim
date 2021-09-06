@@ -10,9 +10,11 @@ set number relativenumber
 syntax enable
 set noswapfile
 set scrolloff=7
-set backspace=indent,eol,start
-
 "set undofile
+
+set backspace=indent,eol,start
+" Give more space for displaying messages.
+set cmdheight=1
 " set hidden is necessary for lsp go to definition to work
 " with unsaved buffers
 set hidden
@@ -36,7 +38,9 @@ set fileformat=unix
 
 set termguicolors
 set cursorline
-let  mapleader = ' '
+" Leave the leader on it's default (\).
+" It will be remapped in normal mode only to <space>
+"let  mapleader = ' '
 " Display invisible characters
 "set list
 "set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
@@ -114,6 +118,6 @@ source $HOME/.config/nvim/plug-config/telescope.vim
 " Ultisnips
 "source $HOME/.config/nvim/plug-config/ultisnips.vim
 
-"source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
+source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
 
 

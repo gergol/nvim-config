@@ -54,14 +54,8 @@ Plug 'michaeljsmith/vim-indent-object'
 " Parenthesis etc. matching
 Plug 'windwp/nvim-autopairs'
 "Plug 'andymass/vim-matchup'
-" Markdown support
-"Plug 'SidOfc/mkdx'
-
-" Markdown preview
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" Need to call the following after PlugInstall: :call mkdp#util#install()
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 "
+" Markdown preview
 " NOTE: this next line requires yarn to be installed. If this makes trouple, just comment it out it and live without markdown preview.
 " Unfortunately the prebuilt binaries seem not to work on my main system.
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }

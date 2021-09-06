@@ -1,3 +1,5 @@
+nmap <space> <leader>
+
 " Map [ and ] to ü and +  (where they are on the QWERTY layout)
 "nnoremap ü [
 "nnoremap + ]
@@ -6,6 +8,12 @@
 "imap Ü {
 "imap + ]
 "imap * [
+
+" Keep visual selection after indenting
+:vnoremap < <gv
+:vnoremap > >gv
+
+
 
 "" NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
@@ -33,7 +41,10 @@ nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<C
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
 " F5 is be usable also in insert mode
-map <F5> :wa  <CR> <Plug>VimspectorContinue
+"map <F5> :wa <bar> call vimspector#Continue()<CR>
+inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
+"<esc>wa <bar> call vimspector#Continue()<CR>
+"map <F5> :wa  <CR> <Plug>VimspectorContinue
 nmap <leader><F5> <Plug>VimspectorPause
 
 nmap <F7> <Plug>VimspectorStepInto
@@ -50,7 +61,11 @@ tnoremap   <silent>   <leader>tk    <C-\><C-n>:FloatermPrev<CR>
 nnoremap   <silent>   <leader>tj    :FloatermNext<CR>
 tnoremap   <silent>   <leader>tj    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <leader>tt   :FloatermToggle<CR>
-tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
+" i had to unmapt leader in terminal mode because typeing <space> would result
+" in a horrible lag in Floaterm.
+"tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <C-t>   :FloatermToggle<CR>
+tnoremap   <silent>   <C-t>   <C-\><C-n>:FloatermToggle<CR>
 
 "nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
@@ -58,7 +73,7 @@ tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
 "nmap <leader>dj <Plug>VimspectorStepOver
 "nmap <leader>dk <Plug>VimspectorStepOut
 "nmap <leader>d_ <Plug>VimspectorRestart
-"nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
 
 "nmap <leader>drc <Plug>VimspectorRunToCursor
 "nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
