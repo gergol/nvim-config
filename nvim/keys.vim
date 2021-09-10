@@ -1,5 +1,10 @@
 nmap <space> <leader>
 
+imap <silent> jk <esc>
+vnoremap <silent> ii <esc> i
+vnoremap <silent> aa <esc> a
+vnoremap <silent> ss <esc> s
+vnoremap <silent> cc <esc> c
 " Map [ and ] to ü and +  (where they are on the QWERTY layout)
 "nnoremap ü [
 "nnoremap + ]
@@ -41,8 +46,9 @@ nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<C
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
 " F5 is be usable also in insert mode
-"map <F5> :wa <bar> call vimspector#Continue()<CR>
+map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
 inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
+"inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
 "<esc>wa <bar> call vimspector#Continue()<CR>
 "map <F5> :wa  <CR> <Plug>VimspectorContinue
 nmap <leader><F5> <Plug>VimspectorPause
