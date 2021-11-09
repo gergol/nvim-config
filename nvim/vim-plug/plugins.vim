@@ -13,6 +13,7 @@ Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
 
+Plug 'tpope/vim-surround'
 
 "Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
@@ -50,6 +51,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
 " indentation selection support
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'vimjas/vim-python-pep8-indent'
 
 " Parenthesis etc. matching
 Plug 'windwp/nvim-autopairs'
@@ -60,6 +62,10 @@ Plug 'windwp/nvim-autopairs'
 " Unfortunately the prebuilt binaries seem not to work on my main system.
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Plug 'kyazdani42/nvim-web-devicons'
+
+" C++
+Plug 'ilyachur/cmake4vim'
+
 " According to doc this plugin should be loaded at the very end
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'

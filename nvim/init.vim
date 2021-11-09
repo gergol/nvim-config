@@ -82,6 +82,8 @@ luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
 source $HOME/.config/nvim/keys.vim
 source $HOME/.config/nvim/plug-config/nvim-autopairs.vim
 
+source $HOME/.config/nvim/plug-config/cmake4vim.vim
+
 "colorscheme onedark
 "let g:airline_theme='onedark'
 

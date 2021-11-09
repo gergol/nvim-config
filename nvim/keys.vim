@@ -32,6 +32,10 @@ nmap <leader>1 :bp<CR>
 nmap <leader>2 :bn<CR>
 " nmap <C-w> :bd<CR>
 
+" yank/paste from system clipboard more conveniently
+noremap <silent> <Leader>y "+y
+noremap <silent> <Leader>p "+p
+
 
 " vimspector
 " Debugger remaps
@@ -44,6 +48,15 @@ nnoremap <leader>dw :call GotoWindowNoMax(g:vimspector_session_windows.watches)<
 nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<CR>
 nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
+
+"function! BuildAndDebug()
+    "%update
+    "CMakeBuild
+    "call Vimspector#Launch()
+"endfunction
+
+"command! BuildAndDebug :%update | :CMakeBuild | :call vimspector#Launch()
+autocmd FileType cpp  nnoremap <buffer><silent><leader>bb :wa<cr> <bar> :%update <bar> :CMakeBuild all<CR>
 
 " F5 is be usable also in insert mode
 map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
@@ -141,6 +154,7 @@ nmap <leader>gs :G<CR>
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <tab>     pumvisible() ? compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) : "\<tab>"
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+"inoremap <silent><expr> <CR>      pumvisible() ? compe#close('<CR>') : "\<CR>"
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
