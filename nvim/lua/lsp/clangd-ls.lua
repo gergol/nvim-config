@@ -1,4 +1,6 @@
-require'lspconfig'.clangd.setup{
+local shared = require('lsp.shared')
+
+return {
 -- The following configs were taken from https://github.com/fitrh/init.nvim/blob/7127fbef569ee498b1cbfae62ef372050b07afbc/lua/lsp/config/clangd.lua
 -- But they dont seem to have any impact
   cmd = {
@@ -19,6 +21,9 @@ require'lspconfig'.clangd.setup{
     completeUnimported = true,
     semanticHighlighting = true,
   },
+  on_attach = shared.on_attach,
+  flags = shared.flags,
+  handlers = shared.handlers,
 }
 
 -- clangd relies on a JSON compilation database specified as compile_commands.json or, for simpler projects, a compile_flags.txt. For details on how to automatically generate one using CMake look here.

@@ -63,7 +63,8 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 ""luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
 "" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
-source $HOME/.config/nvim/plug-config/lsp-config.vim
+"source $HOME/.config/nvim/plug-config/lsp-config.vim
+luafile $HOME/.config/nvim/lua/lsp-config.lua
 luafile $HOME/.config/nvim/lua/compe-config.lua
 luafile $HOME/.config/nvim/lua/nvim-treesitter-conf.lua
 luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
