@@ -28,8 +28,9 @@ Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/fri
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-"Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'glepnir/lspsaga.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 "Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'

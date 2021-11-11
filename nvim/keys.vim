@@ -33,8 +33,9 @@ nmap <leader>2 :bn<CR>
 " nmap <C-w> :bd<CR>
 
 " yank/paste from system clipboard more conveniently
-noremap <silent> <Leader>y "+y
-noremap <silent> <Leader>p "+p
+nnoremap <silent> <leader>y "+y
+vnoremap yy "+y
+noremap <silent> <leader>p "+p
 
 
 " vimspector
