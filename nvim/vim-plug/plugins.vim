@@ -5,7 +5,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
-Plug 'tmhedberg/SimpylFold'
+"Plug 'tmhedberg/SimpylFold'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 
 " Color schemes

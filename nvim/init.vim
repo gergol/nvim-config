@@ -7,7 +7,7 @@
 set encoding=utf-8
 "set guifont=Hack\ 13
 set number relativenumber
-syntax enable
+syntax on
 set noswapfile
 set scrolloff=7
 "set undofile
@@ -31,8 +31,10 @@ set linebreak
 
 
 set foldmethod=indent
-set foldlevel=1
-set foldclose=all
+set foldlevel=0
+set foldnestmax=2
+" start with opened folds
+set nofoldenable
 
 set fileformat=unix
 

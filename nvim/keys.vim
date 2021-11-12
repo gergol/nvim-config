@@ -65,7 +65,7 @@ nnoremap <leader>de :call vimspector#Reset()<CR>
 "command! BuildAndDebug :%update | :CMakeBuild | :call vimspector#Launch()
 autocmd FileType cpp  nnoremap <buffer><silent><leader>bb :wa<cr> <bar> :%update <bar> :CMakeBuild all<CR>
 autocmd FileType cpp  nnoremap <buffer><silent><leader>dx :Dox<CR>
-# jump to test for the current source file. This assumes that the tests are named test_<NAME OF CURRENT CPP/HPP FILE>.cpp
+" jump to test for the current source file. This assumes that the tests are named test_<NAME OF CURRENT CPP/HPP FILE>.cpp
 autocmd FileType cpp  nnoremap <leader>gtt :execute ':find ' . 'test_' . expand('%:t:r') . '.cpp'<cr>
 " F5 is be usable also in insert mode
 map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
