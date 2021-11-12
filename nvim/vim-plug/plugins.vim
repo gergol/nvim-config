@@ -27,10 +27,12 @@ Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/fri
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp-status.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'glepnir/lspsaga.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+
 "Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'
@@ -66,6 +68,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " C++
 Plug 'ilyachur/cmake4vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " According to doc this plugin should be loaded at the very end
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

@@ -36,6 +36,12 @@ function M.on_attach(client, bufnr)
   buf_set_keymap('n', '<C-e>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<C-f>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+  --local status = require("lsp-status")
+  ----local config = require("plugin.lspstatus.config")
+  --status.register_progress()
+  --status.on_attach(client)
+  ----status.config(config)
+
 end
 
 M.flags = {

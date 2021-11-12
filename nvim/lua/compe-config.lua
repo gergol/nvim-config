@@ -26,16 +26,16 @@ require'compe'.setup {
     snippets_nvim = true;
     treesitter = true;
     ultisnips = true;
-    tabnine = {
+    --tabnine = {
 
-      max_line = 1000;
-      max_num_results = 6;
-      priority = 5000;
-      -- setting sort to false means compe will leave tabnine to sort the completion items
-      sort = false;
-      show_prediction_strength = true;
-      ignore_pattern = '[(:]';
-    }
+      --max_line = 1000;
+      --max_num_results = 6;
+      --priority = 5000;
+      ---- setting sort to false means compe will leave tabnine to sort the completion items
+      --sort = false;
+      --show_prediction_strength = true;
+      --ignore_pattern = '[(:]';
+    --}
   };
 }
 

@@ -31,13 +31,15 @@ set linebreak
 
 
 set foldmethod=indent
-set foldlevel=20
+set foldlevel=1
 set foldclose=all
 
 set fileformat=unix
 
 set termguicolors
 set cursorline
+
+set path+=**
 " Leave the leader on it's default (\).
 " It will be remapped in normal mode only to <space>
 "let  mapleader = ' '

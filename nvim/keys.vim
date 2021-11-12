@@ -31,11 +31,17 @@ map <F2> :NERDTreeToggle<CR>
 nmap <leader>1 :bp<CR>
 nmap <leader>2 :bn<CR>
 " nmap <C-w> :bd<CR>
+"" Close current buffer without closing split window 
+nmap ,d :b#<bar>bd#<CR>
+nmap ,d! :b#<bar>bd#!<CR>
+
+
 
 " yank/paste from system clipboard more conveniently
 nnoremap <silent> <leader>y "+y
 vnoremap yy "+y
 noremap <silent> <leader>p "+p
+noremap <silent> <leader>P "+P
 
 
 " vimspector
@@ -58,7 +64,9 @@ nnoremap <leader>de :call vimspector#Reset()<CR>
 
 "command! BuildAndDebug :%update | :CMakeBuild | :call vimspector#Launch()
 autocmd FileType cpp  nnoremap <buffer><silent><leader>bb :wa<cr> <bar> :%update <bar> :CMakeBuild all<CR>
-
+autocmd FileType cpp  nnoremap <buffer><silent><leader>dx :Dox<CR>
+# jump to test for the current source file. This assumes that the tests are named test_<NAME OF CURRENT CPP/HPP FILE>.cpp
+autocmd FileType cpp  nnoremap <leader>gtt :execute ':find ' . 'test_' . expand('%:t:r') . '.cpp'<cr>
 " F5 is be usable also in insert mode
 map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
 inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
