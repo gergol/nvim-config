@@ -41,7 +41,9 @@ nmap ,d! :b#<bar>bd#!<CR>
 nnoremap <silent> <leader>y "+y
 vnoremap yy "+y
 noremap <silent> <leader>p "+p
-noremap <silent> <leader>P "+P
+" paste in visual mode without overwriting paste register
+vnoremap p "_dP
+
 
 
 " vimspector
