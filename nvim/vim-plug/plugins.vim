@@ -30,8 +30,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-Plug 'glepnir/lspsaga.nvim'
-Plug 'ray-x/lsp_signature.nvim'
+Plug 'tami5/lspsaga.nvim'
+"Plug 'glepnir/lspsaga.nvim'
+"Plug 'ray-x/lsp_signature.nvim'
 
 "Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'RishabhRD/popfix'

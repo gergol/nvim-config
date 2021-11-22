@@ -44,6 +44,11 @@ noremap <silent> <leader>p "+p
 " paste in visual mode without overwriting paste register
 vnoremap p "_dP
 
+" ===== FOLDING ======
+" Fold an indent
+nmap zb zfai
+" go down 2 lines and fold indent. Useful for cpp functions.
+nmap zbb 2jzfai
 
 
 " vimspector

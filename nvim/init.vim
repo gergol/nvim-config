@@ -19,6 +19,8 @@ set cmdheight=1
 " with unsaved buffers
 set hidden
 
+" ========== LINE BREAKS, WRAP ETC. ============
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -29,12 +31,20 @@ set smartindent
 set wrap
 set linebreak
 
-
-set foldmethod=indent
+" ======= FOLDING =======
+" Vim define folds automatically by indent level, but would also like to create folds manually
+" See: https://vim.fandom.com/wiki/Folding#Manual_folding
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+" Or set it fixed here
+"set foldmethod=indent
 set foldlevel=0
 set foldnestmax=2
 " start with opened folds
 set nofoldenable
+
 
 set fileformat=unix
 
