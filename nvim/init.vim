@@ -99,6 +99,8 @@ source $HOME/.config/nvim/plug-config/nvim-autopairs.vim
 
 source $HOME/.config/nvim/plug-config/cmake4vim.vim
 
+luafile $HOME/.config/nvim/plug-config/harpoon.lua
+
 "colorscheme onedark
 "let g:airline_theme='onedark'
 

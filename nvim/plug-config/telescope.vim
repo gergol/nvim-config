@@ -68,6 +68,7 @@ require('telescope').setup{
 require('telescope').load_extension('fzf')
 -- Load media_files extensions
 require('telescope').load_extension('media_files')
+require("telescope").load_extension('harpoon')
 EOF
 
 " Find files using Telescope command-line sugar.

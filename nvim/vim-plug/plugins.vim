@@ -49,6 +49,8 @@ Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'ThePrimeagen/harpoon'
+
 
 Plug 'mhinz/vim-startify'
 

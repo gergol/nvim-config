@@ -124,6 +124,26 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fd <cmd>Telescope harpoon marks<cr>
+
+
+" harppon
+nnoremap <silent><leader>h <cmd>lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><leader> e: lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+
+nnoremap <silent><leader>j :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><leader>k :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><leader>l :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><leader>; :lua require("harpoon.ui").nav_file(4)<CR>
+
+nnoremap <C-1> :lua require("harpoon").nav_prev()
+nnoremap <C-2> :lua require("harpoon").nav_next()
+
+nnoremap <silent><leader>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent><leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <silent><leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
+nnoremap <silent><leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
 " LSP config (the mappings used in the default file don't quite work right)
 "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -180,8 +200,8 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 "
 nnoremap <C-j> :cnext<CR>zz
 nnoremap <C-k> :cprev<CR>zz
-nnoremap <leader>j :lnext<CR>zz
-nnoremap <leader>k :lprev<CR>zz
+nnoremap <leader>i :lnext<CR>zz
+nnoremap <leader>o :lprev<CR>zz
 nnoremap <C-q> :call ToggleQFList(1)<CR>
 nnoremap <leader>q :call ToggleQFList(0)<CR>
 
