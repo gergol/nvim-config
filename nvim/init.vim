@@ -67,9 +67,11 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Set ignore whitesace for diff
 set diffopt+=iwhite
 
-"let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
-let g:python3_host_prog = '$HOME/.virtualenvs/neovim/bin/python'
-
+if (has('win64'))
+  let g:python3_host_prog = expand("$HOME/.virtualenvs/neovim/Scripts/python.exe")
+else
+  let g:python3_host_prog = expand("$HOME/.virtualenvs/neovim/bin/python")
+endif
 " Location of the config folder where this file here is in.
 let g:nvim_config_root = stdpath('config')
 
