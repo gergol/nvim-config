@@ -47,7 +47,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+if(has("Win64"))
+    " fzf native seems to be complicated to install on windows, so let's skip
+    " it for now.
+else
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+endif
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'ThePrimeagen/harpoon'
 

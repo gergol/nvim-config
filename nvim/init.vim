@@ -67,37 +67,53 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Set ignore whitesace for diff
 set diffopt+=iwhite
 
-let g:python3_host_prog = '/home/gerald/.virtualenvs/neovim/bin/python'
-
-
+if (has('win64'))
+  let g:python3_host_prog = expand("$HOME/.virtualenvs/neovim/Scripts/python.exe")
+else
+  let g:python3_host_prog = expand("$HOME/.virtualenvs/neovim/bin/python")
+endif
+" Location of the config folder where this file here is in.
+let g:nvim_config_root = stdpath('config')
 
 " Load Plugins
-source $HOME/.config/nvim/vim-plug/plugins.vim
+" helper functions to allow sharing path between win and linux
+function! SourceLocal(relativePath)
+  let fullPath = g:nvim_config_root . '/'. a:relativePath
+  exec 'source ' . fullPath
+endfunction
+
+function! LuafileLocal(relativePath)
+  let fullPath = g:nvim_config_root . '/'. a:relativePath
+  exec 'luafile ' . fullPath
+endfunction
+
+
+call SourceLocal('vim-plug/plugins.vim')
 
 ""luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
 "" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 "source $HOME/.config/nvim/plug-config/lsp-config.vim
-luafile $HOME/.config/nvim/lua/lsp-config.lua
-luafile $HOME/.config/nvim/lua/compe-config.lua
-luafile $HOME/.config/nvim/lua/nvim-treesitter-conf.lua
-luafile $HOME/.config/nvim/lua/lsp/lspsaga.lua
+call LuafileLocal('lua/lsp-config.lua')
+call LuafileLocal('lua/compe-config.lua')
+call LuafileLocal('lua/nvim-treesitter-conf.lua')
+call LuafileLocal('lua/lsp/lspsaga.lua')
 "n
 "" NB: the following files are disabled as the setup 
 "" of the lsp servers is now done in the lsp-config.vim file.
 "" Otherwise, these here would override the definitions therein.
-"luafile $HOME/.config/nvim/lua/lsp/clangd-ls.lua
-"luafile $HOME/.config/nvim/lua/lsp/cmake-ls.lua
-"luafile $HOME/.config/nvim/lua/lsp/json-ls.lua
-"luafile $HOME/.config/nvim/lua/lsp/html-ls.lua
-"luafile $HOME/.config/nvim/lua/lsp/python-ls.lua
-"luafile $HOME/.config/nvim/lua/lsp/vim-ls.lua
+" call LuafileLocal('lua/lsp/clangd-ls.lua')
+" call LuafileLocal('lua/lsp/cmake-ls.lua')
+" call LuafileLocal('lua/lsp/json-ls.lua')
+" call LuafileLocal('lua/lsp/html-ls.lua')
+" call LuafileLocal('lua/lsp/python-ls.lua')
+" call LuafileLocal('lua/lsp/vim-ls.lua')
 
 "" Setup ALL key bindings for the whole system
-source $HOME/.config/nvim/keys.vim
-source $HOME/.config/nvim/plug-config/nvim-autopairs.vim
+call SourceLocal('keys.vim')
+call SourceLocal('plug-config/nvim-autopairs.vim')
 
-source $HOME/.config/nvim/plug-config/cmake4vim.vim
+call SourceLocal('plug-config/cmake4vim.vim')
 
 luafile $HOME/.config/nvim/plug-config/harpoon.lua
 
@@ -126,17 +142,17 @@ let NERDTreeQuitOnOpen=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemode=':t'
 
-" source $HOME/.config/nvim/plug-config/coc.vim
+" call SourceLocal('plug-config/coc.vim')
 
 " Vimspector debugging plugin
-source $HOME/.config/nvim/plug-config/vimspector.vim
+call SourceLocal('plug-config/vimspector.vim')
 
 
-source $HOME/.config/nvim/plug-config/telescope.vim
+call SourceLocal('plug-config/telescope.vim')
 "
 " Ultisnips
-"source $HOME/.config/nvim/plug-config/ultisnips.vim
+"call SourceLocal('plug-config/ultisnips.vim')
 
-source $HOME/.config/nvim/plug-config/markdown-preview-config.vim
+call SourceLocal('plug-config/markdown-preview-config.vim')
 
 
