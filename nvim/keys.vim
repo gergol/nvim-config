@@ -128,9 +128,9 @@ nnoremap <leader>fd <cmd>Telescope harpoon marks<cr>
 
 
 " harppon
-nnoremap <silent><leader>h <cmd>lua require("harpoon.mark").add_file()<CR>
-nnoremap <silent><leader>e: lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <silent><leader>tc :lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>a <cmd>lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><leader>hh <cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>tc <cmd>lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>
 
 nnoremap <silent><leader>j :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <silent><leader>k :lua require("harpoon.ui").nav_file(2)<CR>
