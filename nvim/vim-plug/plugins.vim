@@ -66,6 +66,9 @@ Plug 'vimjas/vim-python-pep8-indent'
 
 " Parenthesis etc. matching
 Plug 'windwp/nvim-autopairs'
+" show vertivcal lines to highlight indented blocks
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 "Plug 'andymass/vim-matchup'
 "
 " Markdown preview

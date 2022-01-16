@@ -116,6 +116,8 @@ call SourceLocal('plug-config/cmake4vim.vim')
 
 luafile $HOME/.config/nvim/plug-config/harpoon.lua
 
+call LuafileLocal('plug-config/indent-blankline.lua')
+
 "colorscheme onedark
 "let g:airline_theme='onedark'
 
