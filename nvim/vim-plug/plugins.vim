@@ -12,6 +12,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'tpope/vim-surround'
 
