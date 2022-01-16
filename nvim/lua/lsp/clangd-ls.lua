@@ -23,7 +23,15 @@ return {
   },
   on_attach = shared.on_attach,
   flags = shared.flags,
-  handlers = shared.handlers,
+  --handlers = shared.handlers,
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Disable virtual_text
+        virtual_text = true 
+      }
+    ),
+  }
 }
 
 -- clangd relies on a JSON compilation database specified as compile_commands.json or, for simpler projects, a compile_flags.txt. For details on how to automatically generate one using CMake look here.

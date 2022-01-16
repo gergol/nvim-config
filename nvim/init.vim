@@ -3,7 +3,6 @@
 "source ~/.vimrc
 " Mostly taken from this tutorial : https://youtu.be/wzrZPcwh-bE
 
-
 set encoding=utf-8
 "set guifont=Hack\ 13
 set number relativenumber
