@@ -126,13 +126,13 @@ call LuafileLocal('plug-config/indent-blankline.lua')
 
 " Choose theme: 
 " DARK THEME:
-"colorscheme sonokai
-"let g:airline_theme='sonokai'
+colorscheme sonokai
+let g:airline_theme='sonokai'
 
 " BRIGHT THEME:
-set background=light
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+"set background=light
+"colorscheme PaperColor
+"let g:airline_theme='papercolor'
 
 
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
