@@ -78,6 +78,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 "Plug 'kyazdani42/nvim-web-devicons'
 
+" Symbols windows
+Plug 'stevearc/aerial.nvim'
+
 " C++
 Plug 'ilyachur/cmake4vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
