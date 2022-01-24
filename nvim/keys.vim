@@ -101,6 +101,10 @@ nnoremap   <silent>   <leader>tt   :FloatermToggle<CR>
 "tnoremap   <silent>   <leader>tt   <C-\><C-n>:FloatermToggle<CR>
 nnoremap   <silent>   <C-t>   :FloatermToggle<CR>
 tnoremap   <silent>   <C-t>   <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <Esc> <C-\><C-n>
+" in terminal mode hit ctrl+b to go back to the previously opened buffer.
+tnoremap <silent> <C-b> <C-\><C-n>:b#<CR>
+
 
 "nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
