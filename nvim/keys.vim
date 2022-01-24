@@ -180,20 +180,12 @@ nmap <leader>gs :G<CR>
 " Autocomplete keys
 "
 
-""inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-""inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"inoremap <silent><expr> <TAB>     compe#confirm('<CR>') 
 "inoremap <silent><expr> <C-Space> compe#complete()
-"inoremap <silent><expr> <TAB> pumvisible() ? "<C-y>" : "<TAB>"
-"inoremap <silent><expr> <TAB> pumvisible() ? compe#confirm('<CR>') : "<TAB>"
-"inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-"
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <tab>     pumvisible() ? compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) : "\<tab>"
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-"inoremap <silent><expr> <CR>      pumvisible() ? compe#close('<CR>') : "\<CR>"
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+"inoremap <silent><expr> <tab>     pumvisible() ? compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) : "\<tab>"
+"inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+""inoremap <silent><expr> <CR>      pumvisible() ? compe#close('<CR>') : "\<CR>"
+"inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+"inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Stuff for quick fix lists
 " Taken from

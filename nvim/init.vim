@@ -93,8 +93,8 @@ call SourceLocal('vim-plug/plugins.vim')
 "" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 "source $HOME/.config/nvim/plug-config/lsp-config.vim
+call LuafileLocal('lua/nvim-cmp-config.lua')
 call LuafileLocal('lua/lsp-config.lua')
-call LuafileLocal('lua/compe-config.lua')
 call LuafileLocal('lua/nvim-treesitter-conf.lua')
 call LuafileLocal('lua/lsp/lspsaga.lua')
 "n
@@ -110,7 +110,7 @@ call LuafileLocal('lua/lsp/lspsaga.lua')
 
 "" Setup ALL key bindings for the whole system
 call SourceLocal('keys.vim')
-call SourceLocal('plug-config/nvim-autopairs.vim')
+call LuafileLocal('lua/nvim-autopairs.lua')
 
 call SourceLocal('plug-config/cmake4vim.vim')
 

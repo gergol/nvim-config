@@ -24,18 +24,26 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/friendly-snippets'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+"Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+"Plug 'quangnguyen30192/cmp-nvim-ultisnips'n
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+" Plug 'hrsh7th/nvim-compe'
 "Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'tami5/lspsaga.nvim'
 "Plug 'glepnir/lspsaga.nvim'
-Plug 'ray-x/lsp_signature.nvim'
+"Plug 'ray-x/lsp_signature.nvim'
 
-"Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'
 " Debugger Plugins
