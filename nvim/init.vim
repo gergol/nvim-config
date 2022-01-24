@@ -145,7 +145,7 @@ hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
 hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline 
 
 " NERDTree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 
 " Tabs
 let g:airline#extensions#tabline#enabled=1
