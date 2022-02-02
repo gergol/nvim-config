@@ -16,6 +16,9 @@ Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'tpope/vim-surround'
 
+" Case sensitive search/replace and more...
+Plug 'tpope/vim-abolish'
+
 "Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
@@ -92,6 +95,7 @@ Plug 'stevearc/aerial.nvim'
 " C++
 Plug 'ilyachur/cmake4vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'p00f/godbolt.nvim'
 
 " According to doc this plugin should be loaded at the very end
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

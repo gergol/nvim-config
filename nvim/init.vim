@@ -113,6 +113,7 @@ call SourceLocal('keys.vim')
 call LuafileLocal('lua/nvim-autopairs.lua')
 
 call SourceLocal('plug-config/cmake4vim.vim')
+call LuafileLocal('plug-config/godbolt.lua')
 
 luafile $HOME/.config/nvim/plug-config/harpoon.lua
 
