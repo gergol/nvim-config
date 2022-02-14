@@ -125,12 +125,13 @@ call LuafileLocal('plug-config/indent-blankline.lua')
 "colorscheme gruvbox
 "let g:airline_theme='gruvbox'
 
-" Choose theme: 
-" DARK THEME:
+"" Choose theme: 
+""
+"" DARK THEME:
 colorscheme sonokai
 let g:airline_theme='sonokai'
 
-" BRIGHT THEME:
+"" BRIGHT THEME:
 "set background=light
 "colorscheme PaperColor
 "let g:airline_theme='papercolor'
