@@ -46,7 +46,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'tami5/lspsaga.nvim'
 "Plug 'glepnir/lspsaga.nvim'
 "Plug 'ray-x/lsp_signature.nvim'
-
+Plug 'folke/trouble.nvim'
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'
 " Debugger Plugins
@@ -87,7 +87,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " NOTE: this next line requires yarn to be installed. If this makes trouple, just comment it out it and live without markdown preview.
 " Unfortunately the prebuilt binaries seem not to work on my main system.
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-"Plug 'kyazdani42/nvim-web-devicons'
 
 " Symbols windows
 Plug 'stevearc/aerial.nvim'
@@ -99,6 +98,7 @@ Plug 'p00f/godbolt.nvim'
 
 " According to doc this plugin should be loaded at the very end
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
 call plug#end()

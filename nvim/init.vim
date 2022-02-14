@@ -88,8 +88,10 @@ endfunction
 
 
 call SourceLocal('vim-plug/plugins.vim')
-
-""luafile $HOME/.config/nvim/lua/lsp/vim-web-devicons.lua
+"lua << EOF
+"require('nvim-web-devicons').setup{}
+"EOF
+"call LuafileLocal('lua/nvim-web-devicons.lua')
 "" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 "source $HOME/.config/nvim/plug-config/lsp-config.vim
@@ -97,6 +99,8 @@ call LuafileLocal('lua/nvim-cmp-config.lua')
 call LuafileLocal('lua/lsp-config.lua')
 call LuafileLocal('lua/nvim-treesitter-conf.lua')
 call LuafileLocal('lua/lsp/lspsaga.lua')
+call LuafileLocal('plug-config/trouble.lua')
+
 "n
 "" NB: the following files are disabled as the setup 
 "" of the lsp servers is now done in the lsp-config.vim file.
@@ -136,7 +140,6 @@ let g:airline_theme='sonokai'
 "colorscheme PaperColor
 "let g:airline_theme='papercolor'
 
-
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
 highlight! link LspDiagnosticsUnderlineInfo CocInfoHighlight
@@ -166,4 +169,5 @@ call SourceLocal('plug-config/telescope.vim')
 
 call SourceLocal('plug-config/markdown-preview-config.vim')
 
+call LuafileLocal('lua/nvim-web-devicons-conf.lua')
 

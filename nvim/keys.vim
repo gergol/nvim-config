@@ -63,6 +63,13 @@ nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_tra
 nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
+"" Trouble 
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 "function! BuildAndDebug()
     "%update
     "CMakeBuild
