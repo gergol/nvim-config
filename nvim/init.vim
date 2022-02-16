@@ -88,6 +88,8 @@ endfunction
 
 
 call SourceLocal('vim-plug/plugins.vim')
+
+call SourceLocal('plug-config/coq.vim')
 "lua << EOF
 "require('nvim-web-devicons').setup{}
 "EOF
@@ -95,12 +97,12 @@ call SourceLocal('vim-plug/plugins.vim')
 "" Configurations
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 "source $HOME/.config/nvim/plug-config/lsp-config.vim
-call LuafileLocal('lua/nvim-cmp-config.lua')
+"call LuafileLocal('lua/nvim-cmp-config.lua')
 call LuafileLocal('lua/lsp-config.lua')
 call LuafileLocal('lua/nvim-treesitter-conf.lua')
 call LuafileLocal('lua/lsp/lspsaga.lua')
 call LuafileLocal('plug-config/trouble.lua')
-
+"call LuafileLocal('lua/navigator-conf.lua')
 "n
 "" NB: the following files are disabled as the setup 
 "" of the lsp servers is now done in the lsp-config.vim file.
@@ -122,7 +124,6 @@ call LuafileLocal('plug-config/godbolt.lua')
 luafile $HOME/.config/nvim/plug-config/harpoon.lua
 
 call LuafileLocal('plug-config/indent-blankline.lua')
-
 "colorscheme onedark
 "let g:airline_theme='onedark'
 

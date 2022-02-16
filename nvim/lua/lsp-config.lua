@@ -32,9 +32,10 @@ local servers = {
   clangd = require("lsp.clangd-ls"),
 }
 
+local coq = require "coq" -- add this
 
 for server, config in pairs(servers) do
-  nvim_lsp[server].setup(config)
+  nvim_lsp[server].setup(coq.lsp_ensure_capabilities(config))
 end
 
 

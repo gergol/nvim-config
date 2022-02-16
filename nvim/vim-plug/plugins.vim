@@ -27,8 +27,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/friendly-snippets'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -36,17 +34,35 @@ Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/fri
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/nvim-compe'
-"Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
+
 Plug 'tami5/lspsaga.nvim'
 "Plug 'glepnir/lspsaga.nvim'
 "Plug 'ray-x/lsp_signature.nvim'
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+"Plug 'ray-x/navigator.lua'
 Plug 'folke/trouble.nvim'
+
+"Plug 'hrsh7th/cmp-vsnip'
+"Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/friendly-snippets'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-cmdline'
+"Plug 'hrsh7th/nvim-cmp'
+
+" main one
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" 9000+ Snippets
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
+" lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+" Need to **configure separately**
+
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+
+" Plug 'hrsh7th/nvim-compe'
+"Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 "Plug 'RishabhRD/popfix'
 "Plug 'RishabhRD/nvim-lsputils'
 " Debugger Plugins
