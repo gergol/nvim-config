@@ -84,6 +84,8 @@ endif
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'ThePrimeagen/harpoon'
 
+" Prevent opening buffers in small windows like nerdetree
+Plug 'stevearc/stickybuf.nvim'
 
 Plug 'mhinz/vim-startify'
 
