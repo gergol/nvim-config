@@ -1,0 +1,9 @@
+{ 
+    "clang-ninja": {
+        "compilers" : {
+             "C": "/usr/bin/clang",
+            "CXX": "/usr/bin/clang++"
+        },
+        "generator": "Ninja"
+    } 
+}
