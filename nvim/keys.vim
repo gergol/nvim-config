@@ -148,6 +148,7 @@ nnoremap <silent><leader>j :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <silent><leader>k :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <silent><leader>l :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <silent><leader>; :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><leader>' :lua require("harpoon.ui").nav_file(5)<CR>
 
 nnoremap <C-1> :lua require("harpoon").nav_prev()
 nnoremap <C-2> :lua require("harpoon").nav_next()
