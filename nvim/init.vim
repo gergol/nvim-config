@@ -66,6 +66,13 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Set ignore whitesace for diff
 set diffopt+=iwhite
 
+"autocmd VimEnter *
+            "\   if !argc()
+            "\ |   Startify
+            "\ |   NERDTree
+            "\ |   wincmd w
+            "\ | endif
+
 if (has('win64'))
   let g:python3_host_prog = expand("$HOME/.virtualenvs/neovim/Scripts/python.exe")
 else
@@ -89,6 +96,7 @@ endfunction
 
 call SourceLocal('vim-plug/plugins.vim')
 
+call SourceLocal('plug-config/startify.vim')
 call SourceLocal('plug-config/coq.vim')
 "lua << EOF
 "require('nvim-web-devicons').setup{}
@@ -151,7 +159,8 @@ hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
 hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline 
 
 " NERDTree
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
+"let g:NERDTreeHijackNetrw=0
 
 " Tabs
 let g:airline#extensions#tabline#enabled=1

@@ -3,6 +3,13 @@
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
+" Prevent opening buffers in small windows like nerdetree
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+Plug 'stevearc/stickybuf.nvim'
+
+Plug 'tpope/vim-fugitive'
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
 "Plug 'tmhedberg/SimpylFold'
@@ -16,12 +23,9 @@ Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'tpope/vim-surround'
 
+"Plug 'jiangmiao/auto-pairs'
 " Case sensitive search/replace and more...
 Plug 'tpope/vim-abolish'
-
-"Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
-let NERDTreeShowHidden=1
 
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -84,12 +88,6 @@ endif
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'ThePrimeagen/harpoon'
 
-" Prevent opening buffers in small windows like nerdetree
-Plug 'stevearc/stickybuf.nvim'
-
-Plug 'mhinz/vim-startify'
-
-Plug 'tpope/vim-fugitive'
 " indentation selection support
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vimjas/vim-python-pep8-indent'
