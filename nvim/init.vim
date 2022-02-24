@@ -66,6 +66,8 @@ autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
 " Set ignore whitesace for diff
 set diffopt+=iwhite
 
+" Session options:
+set sessionoptions=curdir,folds,help,tabpages,winsize
 "autocmd VimEnter *
             "\   if !argc()
             "\ |   Startify
@@ -108,8 +110,8 @@ call SourceLocal('plug-config/coq.vim')
 "call LuafileLocal('lua/nvim-cmp-config.lua')
 call LuafileLocal('lua/lsp-config.lua')
 call LuafileLocal('lua/nvim-treesitter-conf.lua')
-call LuafileLocal('lua/lsp/lspsaga.lua')
-call LuafileLocal('plug-config/trouble.lua')
+"call LuafileLocal('lua/lsp/lspsaga.lua')
+"call LuafileLocal('plug-config/trouble.lua')
 "call LuafileLocal('lua/navigator-conf.lua')
 "n
 "" NB: the following files are disabled as the setup 

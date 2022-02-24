@@ -37,15 +37,15 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'quangnguyen30192/cmp-nvim-ultisnips'n
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/lsp-status.nvim'
+"Plug 'nvim-lua/lsp-status.nvim'
 
 
 Plug 'tami5/lspsaga.nvim'
 "Plug 'glepnir/lspsaga.nvim'
 "Plug 'ray-x/lsp_signature.nvim'
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+"Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
 "Plug 'ray-x/navigator.lua'
-Plug 'folke/trouble.nvim'
+"Plug 'folke/trouble.nvim'
 
 "Plug 'hrsh7th/cmp-vsnip'
 "Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ' | Plug 'rafamadriz/friendly-snippets'
