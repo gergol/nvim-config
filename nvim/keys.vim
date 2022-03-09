@@ -132,6 +132,7 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 
 " telescope
 nnoremap <leader>fs <cmd> :Telescope aerial<cr>
+"nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
@@ -174,8 +175,8 @@ nnoremap <silent><leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
 inoremap ww <ESC>:w!<CR>
 " nnoremap ww <ESC>:w!<CR>
 vnoremap ww <ESC>:w!<CR>
-" Press nww to do a save on normal mode
-nnoremap nww <ESC>:w!<CR>
+" Press <leader>ww to do a save on normal mode
+nnoremap <leader>ww <ESC>:w!<CR>
 " Press Ctrl-S to save
 noremap <C-s> <ESC>:w!<CR>
 

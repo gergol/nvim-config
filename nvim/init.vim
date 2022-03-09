@@ -59,7 +59,7 @@ set path+=**
 "set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 
 " Disable line numbers and sign column for terminal
-autocmd TermOpen * setlocal nonumber norelativenumber scl="no"
+autocmd TermOpen * setlocal nonumber norelativenumber
 " Mimic Vim8 Terminal escape
 :tnoremap <C-w> <C-\><C-n><CR><C-l><C-w><Cr>
 
