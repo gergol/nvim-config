@@ -10,6 +10,8 @@ syntax on
 set noswapfile
 set scrolloff=7
 "set undofile
+set clipboard=unnamedplus
+
 
 set backspace=indent,eol,start
 " Give more space for displaying messages.

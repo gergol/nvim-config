@@ -38,9 +38,10 @@ nmap ,d! :b#<bar>bd#!<CR>
 
 
 " yank/paste from system clipboard more conveniently
-nnoremap <silent> <leader>y "+y
-vnoremap yy "+y
-noremap <silent> <leader>p "+p
+" These previous remaps below are no longer needed as we set set clipboard=unnamedplus
+" which makes the system clipblard the default one. Use ctrl-shift-v to paste
+" in a terminal.
+
 " paste in visual mode without overwriting paste register
 vnoremap p "_dP
 
