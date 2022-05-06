@@ -1,5 +1,32 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "c", 
+    "cmake", 
+    "cpp", 
+    "css", 
+    "cuda", 
+    "html", 
+    "java", 
+    "javascript", 
+    "json", 
+    "json5",
+    "jsonc", 
+    "julia",
+    "latex", 
+    "llvm", 
+    "lua", 
+    "make",
+    "markdown",
+    "python",
+    "r",
+    "regex",
+    "rust",
+    "swift",
+    "supercollider",
+    "toml",
+    "typescript",
+    "yaml"
+  },
   --ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension

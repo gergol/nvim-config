@@ -136,6 +136,8 @@ call LuafileLocal('plug-config/godbolt.lua')
 luafile $HOME/.config/nvim/plug-config/harpoon.lua
 
 call LuafileLocal('plug-config/indent-blankline.lua')
+call LuafileLocal('plug-config/nvim-bufferline-config.lua')
+call LuafileLocal('plug-config/lualine-config.lua')
 "colorscheme onedark
 "let g:airline_theme='onedark'
 
@@ -145,13 +147,26 @@ call LuafileLocal('plug-config/indent-blankline.lua')
 "" Choose theme: 
 ""
 "" DARK THEME:
-colorscheme sonokai
-let g:airline_theme='sonokai'
+"colorscheme sonokai
+"let g:airline_theme='sonokai'
 
 "" BRIGHT THEME:
 "set background=light
 "colorscheme PaperColor
 "let g:airline_theme='papercolor'
+
+" VSCODE THEME:
+" For dark theme
+let g:vscode_style = "dark"
+" For light theme
+"let g:vscode_style = "light"
+" Enable transparent background
+let g:vscode_transparency = 1
+" Enable italic comment
+let g:vscode_italic_comment = 1
+" Disable nvim-tree background color
+let g:vscode_disable_nvimtree_bg = v:true
+colorscheme vscode
 
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight

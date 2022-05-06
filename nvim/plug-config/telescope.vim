@@ -11,6 +11,11 @@ require('telescope').setup{
       '--column'
 --      '--smart-case'
     },
+    pickers = {
+      live_grep = {
+        only_sort_text = true
+      }
+    }, 
     hidden = true,
     prompt_prefix = "> ",
     selection_caret = "> ",

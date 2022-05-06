@@ -19,7 +19,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'martinsione/darkplus.nvim'
+Plug 'Mofiqul/vscode.nvim'
 
 Plug 'tpope/vim-surround'
 
@@ -28,8 +30,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 
 Plug 'preservim/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

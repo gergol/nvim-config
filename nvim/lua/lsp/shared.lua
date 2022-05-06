@@ -41,8 +41,9 @@ function M.on_attach(client, bufnr)
   --status.register_progress()
   --status.on_attach(client)
   ----status.config(config)
-  -- attach aerial 
-  require("aerial").on_attach(client, bufnr)
+  ---- attach aerial 
+  --require("aerial").on_attach(client, bufnr)
+
 end
 
 M.flags = {

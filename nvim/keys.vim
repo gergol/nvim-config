@@ -36,6 +36,20 @@ nmap ,d :b#<bar>bd#<CR>
 nmap ,d! :b#<bar>bd#!<CR>
 
 
+"" NVIM Bufferline
+" These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <silent>[b :BufferLineCycleNext<CR>
+nnoremap <silent>b] :BufferLineCyclePrev<CR>
+
+" These commands will move the current buffer backwards or forwards in the bufferline
+nnoremap <silent><leader>1 :BufferLineMovePrev<CR>
+nnoremap <silent><leader>2 :BufferLineMoveNext<CR>
+
+" These commands will sort buffers by directory, language, or a custom criteria
+nnoremap <silent>be :BufferLineSortByExtension<CR>
+nnoremap <silent>bd :BufferLineSortByDirectory<CR>
+"nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
 
 " yank/paste from system clipboard more conveniently
 " These previous remaps below are no longer needed as we set set clipboard=unnamedplus
@@ -51,13 +65,16 @@ nmap zb zfai
 " go down 2 lines and fold indent. Useful for cpp functions.
 nmap zbb 2jzfai
 
+"======= SEARCH REPLACE ===========
+" Search and replace word under cursor in all files in arglist
+nnoremap <leader>rr yiw:silent! argdo %s/\<<C-r>"\>//g<left><left>
 
 " vimspector
 " Debugger remaps
 nnoremap <leader>m :MaximizerToggle!<CR>
 nnoremap <leader>dd :call vimspector#Launch()<CR>
 nnoremap <leader>dc :call GotoWindowNoMax(g:vimspector_session_windows.code)<CR>
-nnoremap <leader>dt :call GotoWindowNoMax(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dt :call GotoWindowNoMax(g:vimspector_session_windows.terminal)<CR>
 nnoremap <leader>dv :call GotoWindowNoMax(g:vimspector_session_windows.variables)<CR>
 nnoremap <leader>dw :call GotoWindowNoMax(g:vimspector_session_windows.watches)<CR>
 nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<CR>
