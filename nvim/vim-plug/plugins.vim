@@ -46,6 +46,7 @@ Plug 'neovim/nvim-lspconfig'
 
 
 Plug 'tami5/lspsaga.nvim'
+Plug 'github/copilot.vim'
 "Plug 'glepnir/lspsaga.nvim'
 "Plug 'ray-x/lsp_signature.nvim'
 "Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }

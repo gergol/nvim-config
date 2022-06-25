@@ -110,7 +110,7 @@ inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr>
 nmap <leader><F5> <Plug>VimspectorPause
 
 nmap <F7> <Plug>VimspectorStepInto
-nmap <leader><F7> <Plug>VimspectorStepOut
+nmap <leader><F8> <Plug>VimspectorStepOut
 nmap <F8> <Plug>VimspectorStepOver
 nmap <leader><F8> <Plug>VimspectorRunToCursorRunToCursor
 nmap <F9> <Plug>VimspectorToggleBreakpoint
@@ -214,7 +214,9 @@ nmap <leader>gs :G<CR>
 
 " Autocomplete keys
 "
-
+"Github copilot accept suggestion
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 "inoremap <silent><expr> <C-Space> compe#complete()
 "inoremap <silent><expr> <tab>     pumvisible() ? compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()")) : "\<tab>"
 "inoremap <silent><expr> <C-e>     compe#close('<C-e>')
