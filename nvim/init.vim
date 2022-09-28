@@ -110,6 +110,7 @@ call SourceLocal('plug-config/coq.vim')
 "source $HOME/.config/nvim/plug-config/mkdx.vim
 "source $HOME/.config/nvim/plug-config/lsp-config.vim
 "call LuafileLocal('lua/nvim-cmp-config.lua')
+call LuafileLocal('plug-config/marks.lua')
 call LuafileLocal('lua/lsp-config.lua')
 call LuafileLocal('lua/nvim-treesitter-conf.lua')
 "call LuafileLocal('lua/lsp/lspsaga.lua')

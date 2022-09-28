@@ -24,7 +24,7 @@ return {
   },
   on_attach = shared.on_attach,
   flags = shared.flags,
-  capabilities = shared.capabilities,
+  -- capabilities = shared.capabilities,
   --handlers = shared.handlers,
   handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(

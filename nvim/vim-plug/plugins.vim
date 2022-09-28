@@ -10,6 +10,7 @@ let NERDTreeShowHidden=1
 Plug 'stevearc/stickybuf.nvim'
 
 Plug 'tpope/vim-fugitive'
+Plug 'sindrets/diffview.nvim'
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
 "Plug 'tmhedberg/SimpylFold'
@@ -34,7 +35,7 @@ Plug 'preservim/nerdcommenter'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-
+Plug 'chentoast/marks.nvim'
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
