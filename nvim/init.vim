@@ -201,3 +201,6 @@ call SourceLocal('plug-config/markdown-preview-config.vim')
 
 call LuafileLocal('lua/nvim-web-devicons-conf.lua')
 
+if has('wsl')
+  let g:fugitive_git_executable = '"/mnt/c/Users/gerald/AppData/Local/Programs/Git/cmd/git.exe"'
+endif
