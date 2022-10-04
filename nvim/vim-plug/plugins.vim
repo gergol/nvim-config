@@ -14,6 +14,8 @@ Plug 'sindrets/diffview.nvim'
 " Better Syntax Support
 Plug 'sheerun/vim-polyglot'
 "Plug 'tmhedberg/SimpylFold'
+
+"NB: if the TSUpdate fails, one can run `nvim -c "TSInstallSync maintained" -c q` from the terminal
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 
 " Color schemes
