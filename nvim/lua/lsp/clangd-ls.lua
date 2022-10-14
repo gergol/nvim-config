@@ -15,6 +15,12 @@ return {
     "--completion-style=bundled",
     "--cross-file-rename",
     "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--pch-storage=memory",
+    "--suggest-missing-includes",
+    "--all-scopes-completion",
+    "-j=6",
+    "--offset-encoding=utf-16"
   }, 
   init_options = {
     clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
