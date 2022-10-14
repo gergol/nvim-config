@@ -120,7 +120,13 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'p00f/godbolt.nvim'
 
 " According to doc this plugin should be loaded at the very end
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"
+" TODO: I disabled this here as it raises an annoying warning:
+" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/issues/53
+"
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"
+"
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
