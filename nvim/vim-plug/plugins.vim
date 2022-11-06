@@ -22,7 +22,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
-"Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
 "Plug 'martinsione/darkplus.nvim'
 Plug 'Mofiqul/vscode.nvim'
 

@@ -151,15 +151,23 @@ call LuafileLocal('plug-config/lualine-config.lua')
 "colorscheme sonokai
 "let g:airline_theme='sonokai'
 
-"" BRIGHT THEME:
-"set background=light
-"colorscheme PaperColor
-"let g:airline_theme='papercolor'
+"" CHANGE HERE AND RELOAD THIS FILE TO CHANGE THE THEME
+let use_bright_theme=0
 
+if use_bright_theme
+
+"" BRIGHT THEME:
+set background=light
+colorscheme PaperColor
+"let g:airline_theme='papercolor'
+let g:airline_theme='papercolor_light'
+else
+set background=dark
 " VSCODE THEME:
 " For dark theme
 let g:vscode_style = "dark"
 " For light theme
+"set background=light
 "let g:vscode_style = "light"
 " Enable transparent background
 let g:vscode_transparency = 1
@@ -167,7 +175,9 @@ let g:vscode_transparency = 1
 let g:vscode_italic_comment = 1
 " Disable nvim-tree background color
 let g:vscode_disable_nvimtree_bg = v:true
+let g:airline_theme='vscode'
 colorscheme vscode
+endif
 
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
