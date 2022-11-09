@@ -151,7 +151,7 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
 
 " telescope
-"nnoremap <leader>fs <cmd> :Telescope aerial<cr>
+nnoremap <leader>fs <cmd> :Telescope aerial<cr>
 "nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols ()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').git_files()<cr>
