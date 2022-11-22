@@ -19,12 +19,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 
 " Color schemes
-Plug 'sainnhe/sonokai'
+"Plug 'sainnhe/sonokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'NLKNguyen/papercolor-theme'
 "Plug 'martinsione/darkplus.nvim'
-Plug 'Mofiqul/vscode.nvim'
+"Plug 'Mofiqul/vscode.nvim'
+Plug 'EdenEast/nightfox.nvim'
 
 Plug 'tpope/vim-surround'
 
@@ -120,6 +121,10 @@ Plug 'stevearc/aerial.nvim'
 Plug 'ilyachur/cmake4vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'p00f/godbolt.nvim'
+
+" Python
+" Jupyter lab support
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 
 " According to doc this plugin should be loaded at the very end
 "

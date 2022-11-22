@@ -30,6 +30,8 @@ map <F2> :NERDTreeToggle<CR>
 " Tabs
 nmap <leader>1 :bp<CR>
 nmap <leader>2 :bn<CR>
+
+nnoremap <leader>m :MaximizerToggle!<CR>
 " nmap <C-w> :bd<CR>
 "" Close current buffer without closing split window 
 nmap ,d :b#<bar>bd#<CR>
@@ -67,55 +69,7 @@ nmap zb zfai
 " go down 2 lines and fold indent. Useful for cpp functions.
 nmap zbb 2jzfai
 
-"======= SEARCH REPLACE ===========
-" Search and replace word under cursor in all files in arglist
-nnoremap <leader>rr yiw:silent! argdo %s/\<<C-r>"\>//g<left><left>
-
-" vimspector
-" Debugger remaps
-nnoremap <leader>m :MaximizerToggle!<CR>
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-nnoremap <leader>dc :call GotoWindowNoMax(g:vimspector_session_windows.code)<CR>
-nnoremap <leader>dt :call GotoWindowNoMax(g:vimspector_session_windows.terminal)<CR>
-nnoremap <leader>dv :call GotoWindowNoMax(g:vimspector_session_windows.variables)<CR>
-nnoremap <leader>dw :call GotoWindowNoMax(g:vimspector_session_windows.watches)<CR>
-nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<CR>
-nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
-
-"" Trouble 
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
-"function! BuildAndDebug()
-    "%update
-    "CMakeBuild
-    "call Vimspector#Launch()
-"endfunction
-
-"command! BuildAndDebug :%update | :CMakeBuild | :call vimspector#Launch()
-autocmd FileType cpp  nnoremap <buffer><silent><leader>bb :wa<cr> <bar> :%update <bar> :CMakeBuild all<CR>
-autocmd FileType cpp  nnoremap <buffer><silent><leader>dx :Dox<CR>
-" jump to test for the current source file. This assumes that the tests are named test_<NAME OF CURRENT CPP/HPP FILE>.cpp
-autocmd FileType cpp  nnoremap <leader>gtt :execute ':find ' . 'test_' . expand('%:t:r') . '.cpp'<cr>
-" F5 is be usable also in insert mode
-map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
-inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
-"inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
-"<esc>wa <bar> call vimspector#Continue()<CR>
-"map <F5> :wa  <CR> <Plug>VimspectorContinue
-nmap <leader><F5> <Plug>VimspectorPause
-
-nmap <F7> <Plug>VimspectorStepInto
-nmap <leader><F8> <Plug>VimspectorStepOut
-nmap <F8> <Plug>VimspectorStepOver
-nmap <leader><F8> <Plug>VimspectorRunToCursorRunToCursor
-nmap <F9> <Plug>VimspectorToggleBreakpoint
-nmap <leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
-
+" ===== TERMINAL ======
 nnoremap   <silent>   <leader>tn    :FloatermNew<CR>
 tnoremap   <silent>   <leader>tn    <C-\><C-n>:FloatermNew<CR>
 nnoremap   <silent>   <leader>tk   :FloatermPrev<CR>
@@ -131,6 +85,50 @@ tnoremap   <silent>   <C-t>   <C-\><C-n>:FloatermToggle<CR>
 tnoremap <silent> <Esc> <C-\><C-n>
 " in terminal mode hit ctrl+b to go back to the previously opened buffer.
 tnoremap <silent> <C-b> <C-\><C-n>:b#<CR>
+
+"======= SEARCH REPLACE ===========
+" Search and replace word under cursor in all files in arglist
+nnoremap <leader>rr yiw:silent! argdo %s/\<<C-r>"\>//g<left><left>
+
+" vimspector
+" Debugger remaps
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GotoWindowNoMax(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GotoWindowNoMax(g:vimspector_session_windows.terminal)<CR>
+nnoremap <leader>dv :call GotoWindowNoMax(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindowNoMax(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindowNoMax(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+"" Trouble 
+"nnoremap <leader>xx <cmd>TroubleToggle<cr>
+"nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+"nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+"nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+"nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+"nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+"function! BuildAndDebug()
+    "%update
+    "CMakeBuild
+    "call Vimspector#Launch()
+"endfunction
+
+" F5 is be usable also in insert mode
+map <silent> <F5> :wa <bar> call vimspector#Continue()<CR>
+inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
+"inoremap <silent> <F5> <esc>:wa<cr> <bar> call vimspector#Continue()<cr> 
+"<esc>wa <bar> call vimspector#Continue()<CR>
+"map <F5> :wa  <CR> <Plug>VimspectorContinue
+nmap <leader><F5> <Plug>VimspectorPause
+
+nmap <F7> <Plug>VimspectorStepInto
+nmap <leader><F8> <Plug>VimspectorStepOut
+nmap <F8> <Plug>VimspectorStepOver
+nmap <leader><F8> <Plug>VimspectorRunToCursorRunToCursor
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+nmap <leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
+
 
 
 "nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
@@ -212,8 +210,25 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gs :G<CR>
 
+" ========= FILE SPECIFIC COMMANDS =========
+" ================ C++ =====================
+"command! BuildAndDebug :%update | :CMakeBuild | :call vimspector#Launch()
+autocmd FileType cpp  nnoremap <buffer><silent><leader>bb :wa<cr> <bar> :%update <bar> :CMakeBuild all<CR>
+autocmd FileType cpp  nnoremap <buffer><silent><leader>dx :Dox<CR>
+" jump to test for the current source file. This assumes that the tests are named test_<NAME OF CURRENT CPP/HPP FILE>.cpp
+autocmd FileType cpp  nnoremap <leader>gtt :execute ':find ' . 'test_' . expand('%:t:r') . '.cpp'<cr>
+
+" ================ PYTHON =================
+autocmd FileType cpp  nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+autocmd FileType cpp  xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+autocmd FileType cpp  nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+
+
+
 " Autocomplete keys
-"
 "Github copilot accept suggestion
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
