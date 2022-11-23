@@ -88,7 +88,7 @@ tnoremap <silent> <C-b> <C-\><C-n>:b#<CR>
 
 "======= SEARCH REPLACE ===========
 " Search and replace word under cursor in all files in arglist
-nnoremap <leader>rr yiw:silent! argdo %s/\<<C-r>"\>//g<left><left>
+"nnoremap <leader>rr yiw:silent! argdo %s/\<<C-r>"\>//g<left><left>
 
 " vimspector
 " Debugger remaps
@@ -219,12 +219,12 @@ autocmd FileType cpp  nnoremap <buffer><silent><leader>dx :Dox<CR>
 autocmd FileType cpp  nnoremap <leader>gtt :execute ':find ' . 'test_' . expand('%:t:r') . '.cpp'<cr>
 
 " ================ PYTHON =================
-autocmd FileType cpp  nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
-autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
-autocmd FileType cpp  xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
-autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
-autocmd FileType cpp  nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
-autocmd FileType cpp  nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+autocmd FileType python  nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+autocmd FileType python  nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+autocmd FileType python  xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+autocmd FileType python  nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+autocmd FileType python  nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+autocmd FileType python  nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
 
 
 
