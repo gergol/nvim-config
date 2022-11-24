@@ -197,7 +197,7 @@ local config = {
           "--header-insertion-decorators",
           "--pch-storage=memory",
           "--suggest-missing-includes",
-          "--malloc-trim",
+          -- "--malloc-trim",
           --    "--all-scopes-completion",
           "-j=6",
           "--offset-encoding=utf-16"
