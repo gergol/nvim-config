@@ -51,7 +51,8 @@ local config = {
       tabstop = 4,
       softtabstop = 4,
       shiftwidth = 4,
-      expandtab = true
+      expandtab = true,
+      scrolloff=7,
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -224,7 +225,7 @@ local config = {
       --       },
       --     },
       --   },
-      -- },
+      -- }, 
     },
   },
 
@@ -283,7 +284,8 @@ local config = {
 	  ["<leader>br"] = { ":CMakeResetAndReload<cr>", desc = "Reset cmake cache" },
 	  ["<leader>bR"] = { ":CMakeReset<cr>", desc = "Reset build folder completely" },
 	  ["<leader>bi"] = { ":CMakeInfo<cr>", desc = "Info" },
-
+	  -- Goto header
+      ["gh"] = { "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Jump to header/source" }
     },
     i = {
       ["jk"] = { "<esc>:w!<cr>" },
@@ -362,6 +364,13 @@ local config = {
     treesitter = { -- overrides `require("treesitter").setup(...)`
       -- ensure_installed = { "lua" },
     },
+    -- ["max397574/better-escape.nvim"] = {
+    --   mapping = { "jk" },
+    -- keys = function()
+    --   print("AAAAA")
+    --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
+    -- end,
+    -- },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
       ensure_installed = { "clangd" },
