@@ -17,21 +17,23 @@ return {
   { "github/copilot.vim" },
   -- clangd extensions
   { "p00f/clangd_extensions.nvim" },
-  {
-    "mfussenegger/nvim-dap",
-    opt = true,
-    event = "BufReadPre",
-    module = { "dap" },
-    wants = { "nvim-dap-virtual-text", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-    requires = {
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      "mfussenegger/nvim-dap-python",
-      "nvim-telescope/telescope-dap.nvim",
-    },
-
-    config = function() require("user.nvim-dap").setup() end,
-  },
+  { "tpope/vim-fugitive" },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   opt = true,
+  --   event = "BufReadPre",
+  --   module = { "dap" },
+  --   wants = { "nvim-dap-virtual-text", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+  --   requires = {
+  --     "theHamsta/nvim-dap-virtual-text",
+  --     "rcarriga/nvim-dap-ui",
+  --     "mfussenegger/nvim-dap-python",
+  --     "nvim-telescope/telescope-dap.nvim",
+  --   },
+  --
+  --   config = function() require("user.nvim-dap").setup() end,
+  -- },
+  { "puremourning/vimspector", config = function() require("user.plugins.vimspector").setup() end },
   -- cmake
   {
     "ilyachur/cmake4vim",
