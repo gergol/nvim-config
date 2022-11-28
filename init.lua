@@ -436,7 +436,15 @@ local config = {
         -- false == disabled
         -- true == 1000
         cmp = {
+                -- sources = {
+                --         { name = "copilot" },
+                --         -- { name = "nvim_lsp", group_index = 2 },
+                --         -- { name = "path", group_index = 2 },
+                --         -- { name = "luasnip", group_index = 2 },
+                -- },
+
                 source_priority = {
+                        copilot = 2000,
                         nvim_lsp = 1000,
                         luasnip = 750,
                         buffer = 500,

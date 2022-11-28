@@ -14,7 +14,7 @@ return {
   { "tpope/vim-abolish" },
   -- Maximize windows
   { "szw/vim-maximizer" },
-  { "github/copilot.vim" },
+  -- { "github/copilot.vim" },
   -- clangd extensions
   { "p00f/clangd_extensions.nvim" },
   { "tpope/vim-fugitive" },
@@ -40,7 +40,22 @@ return {
     requires = { "SantinoKeupp/telescope-cmake4vim.nvim", "SantinoKeupp/lualine-cmake4vim.nvim" },
     config = function() require("user.plugins.cmake4vim").setup() end,
   },
-  {"iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end
-  }, 
+  { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end },
+  { "onsails/lspkind-nvim" }, -- Enables icons on completions
+  {
+    "zbirenbaum/copilot.lua",
+    event = "VimEnter",
+    config = function()
+      require("copilot").setup()
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua", "nvim-cmp" },
+    module = "copilot_cmp",
+    config = function()
+      require("copilot_cmp").setup()
+      astronvim.add_user_cmp_source "copilot"
+    end,
+  },
 }
