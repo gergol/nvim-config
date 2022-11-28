@@ -66,6 +66,7 @@ local config = {
                         status_diagnostics_enabled = true, -- enable diagnostics in statusline
                         icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
                         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+                        copilot_no_tab_map = true,
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -321,9 +322,11 @@ local config = {
                         -- Vim maximizer
                         ["<leader>m"] = { ":MaximizerToggle!<cr>", desc = "Maximize window" },
                         -- Vim fugitive git integration
-                        ["<leader>gs"] = { ":G<cr>", desc = "Open git  window"}
+                        ["<leader>gs"] = { ":G<cr>", desc = "Open git  window" },
                 },
-                i = {},
+                i = {
+                        ["<C-J>"] = { "copilot#Accept(<Tab>)", silent = true, expr = true, script = true },
+                },
                 t = {
                         -- setting a mapping to false will disable it
                         -- ["<esc>"] = false,
@@ -463,7 +466,7 @@ local config = {
         -- augroups/autocommands and custom filetypes also this just pure lua so
         -- anything that doesn't fit in the normal config locations above can go here
         polish = function()
-                vim.cmd("set path+=**")
+                vim.cmd "set path+=**"
                 require("telescope").load_extension "cmake4vim"
                 -- Set up custom filetypes
                 -- vim.filetype.add {

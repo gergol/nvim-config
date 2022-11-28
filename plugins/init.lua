@@ -40,4 +40,7 @@ return {
     requires = { "SantinoKeupp/telescope-cmake4vim.nvim", "SantinoKeupp/lualine-cmake4vim.nvim" },
     config = function() require("user.plugins.cmake4vim").setup() end,
   },
+  {"iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end
+  }, 
 }
