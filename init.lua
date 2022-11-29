@@ -1,4 +1,4 @@
---    AstroNvim Configuration Table
+--  AstroNvim Configuration Table
 -- All configuration changes should go inside of the table below
 
 -- You can think of a Lua "table" as a dictionary like data structure the
@@ -67,6 +67,7 @@ local config = {
                         icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
                         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
                         copilot_no_tab_map = true,
+                        -- python3_host_prog = "$HOME/.virtualenvs/neovim/bin/python",
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -82,16 +83,16 @@ local config = {
         -- Set dashboard header
         header = {
                 " █████  ███████ ████████ ██████   ██████",
-                "██   ██ ██   ██    ██   ██ ██    ██",
-                "███████ ███████    ██    ██████  ██    ██",
-                "██   ██      ██    ██    ██   ██ ██    ██",
-                "██   ██ ███████    ██    ██   ██  ██████",
+                "██   ██ ██   ██  ██   ██ ██  ██",
+                "███████ ███████  ██  ██████  ██  ██",
+                "██   ██    ██  ██  ██   ██ ██  ██",
+                "██   ██ ███████  ██  ██   ██  ██████",
                 " ",
-                "    ███    ██ ██    ██ ██ ███    ███",
-                "    ████   ██ ██    ██ ██ ████  ████",
-                "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-                "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-                "    ██   ████   ████   ██ ██      ██",
+                "  ███    ██ ██    ██ ██ ███    ███",
+                "  ████   ██ ██    ██ ██ ████  ████",
+                "  ██ ██  ██ ██    ██ ██ ██ ████ ██",
+                "  ██  ██ ██  ██  ██  ██ ██  ██  ██",
+                "  ██   ████   ████   ██ ██      ██",
         },
 
         -- Default theme configuration
@@ -202,11 +203,11 @@ local config = {
                                         "--pch-storage=memory",
                                         "--suggest-missing-includes",
                                         -- "--malloc-trim",
-                                        --    "--all-scopes-completion",
+                                        --  "--all-scopes-completion",
                                         "-j=6",
                                         "--offset-encoding=utf-16",
-                                        --    "--log=verbose",
-                                        --    "--pretty",
+                                        --  "--log=verbose",
+                                        --  "--pretty",
                                 },
                                 init_options = {
                                         clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
@@ -221,13 +222,13 @@ local config = {
                         -- example for addings schemas to yamlls
                         -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
                         --   settings = {
-                        --     yaml = {
-                        --       schemas = {
+                        --   yaml = {
+                        --     schemas = {
                         --   ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
                         --   ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
                         --   ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-                        --       },
                         --     },
+                        --   },
                         --   },
                         -- },
                 },
@@ -323,6 +324,11 @@ local config = {
                         ["<leader>m"] = { ":MaximizerToggle!<cr>", desc = "Maximize window" },
                         -- Vim fugitive git integration
                         ["<leader>gs"] = { ":G<cr>", desc = "Open git  window" },
+                        -- magma nvim jupyter extension
+                        ["<LocalLeader>rr"] = { ":MagmaEvaluateLine<cr>", desc = "evaluate line", silent = true },
+                        ["<LocalLeader>rc"] = { ":MagmaReevaluateCell<cr>", desc = "evaluate cell", silent = true },
+                        ["<LocalLeader>rd"] = { ":MagmaDelete<cr>", desc = "delete", silent = true },
+                        ["<LocalLeader>ro"] = { ":MagmaShowOutput<cr>", desc = "show output", silent = true },
                 },
                 i = {
                         ["<C-J>"] = { "copilot#Accept(<Tab>)", silent = true, expr = true, script = true },
@@ -339,6 +345,8 @@ local config = {
                         },
                         ["<C-k>"] = { ":cprev<cr>", desc = "Prev QF item" },
                         ["<C-j>"] = { ":cnext<cr>", desc = "Next QF item" },
+                        -- magma nvim jupyter extension
+                        ["<LocalLeader>r"] = { ":<C-u>MagmaEvaluateVisual<cr>", desc = "evaluate selection", silent = true },
                 },
         },
 
@@ -355,7 +363,7 @@ local config = {
                         --   "ray-x/lsp_signature.nvim",
                         --   event = "BufRead",
                         --   config = function()
-                        --     require("lsp_signature").setup()
+                        --   require("lsp_signature").setup()
                         --   end,
                         -- },
 
@@ -363,7 +371,7 @@ local config = {
                         -- ["ray-x/lsp_signature.nvim"] = {
                         --   event = "BufRead",
                         --   config = function()
-                        --     require("lsp_signature").setup()
+                        --   require("lsp_signature").setup()
                         --   end,
                         -- },{
                         {
@@ -437,10 +445,10 @@ local config = {
         -- true == 1000
         cmp = {
                 -- sources = {
-                --         { name = "copilot" },
-                --         -- { name = "nvim_lsp", group_index = 2 },
-                --         -- { name = "path", group_index = 2 },
-                --         -- { name = "luasnip", group_index = 2 },
+                --     { name = "copilot" },
+                --     -- { name = "nvim_lsp", group_index = 2 },
+                --     -- { name = "path", group_index = 2 },
+                --     -- { name = "luasnip", group_index = 2 },
                 -- },
 
                 source_priority = {
@@ -466,6 +474,15 @@ local config = {
                                         ["d"] = { name = "Debug" },
                                         ["b"] = { name = "Build" },
                                 },
+                                ["<LocalLeader>"] = {
+                                        ["r"] = { name = "Jupyter REPL" },
+                                },
+                        },
+                        v = {
+
+                                ["<LocalLeader>"] = {
+                                        ["r"] = { name = "Jupyter REPL" },
+                                },
                         },
                 },
         },
@@ -479,13 +496,13 @@ local config = {
                 -- Set up custom filetypes
                 -- vim.filetype.add {
                 --   extension = {
-                --     foo = "fooscript",
+                --   foo = "fooscript",
                 --   },
                 --   filename = {
-                --     ["Foofile"] = "fooscript",
+                --   ["Foofile"] = "fooscript",
                 --   },
                 --   pattern = {
-                --     ["~/%.config/foo/.*"] = "fooscript",
+                --   ["~/%.config/foo/.*"] = "fooscript",
                 --   },
                 -- }
         end,
