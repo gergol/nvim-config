@@ -39,37 +39,36 @@ local config = {
         },
 
         -- set vim options here (vim.<first_key>.<second_key> = value)
-        options = {
-                opt = {
-                        -- set to true or false etc.
-                        relativenumber = true, -- sets vim.opt.relativenumber
-                        number = true, -- sets vim.opt.number
-                        spell = false, -- sets vim.opt.spell
-                        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-                        wrap = false, -- sets vim.opt.wrap
-                        tabstop = 4,
-                        softtabstop = 4,
-                        shiftwidth = 4,
-                        expandtab = true,
-                        scrolloff = 7,
-                        autoindent = true,
-                        smartindent = true,
-                        -- columns=120
-                        linebreak = true,
-                },
-                g = {
-                        mapleader = " ", -- sets vim.g.mapleader
-                        autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-                        cmp_enabled = true, -- enable completion at start
-                        autopairs_enabled = true, -- enable autopairs at start
-                        diagnostics_enabled = true, -- enable diagnostics at start
-                        status_diagnostics_enabled = true, -- enable diagnostics in statusline
-                        icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-                        ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-                        copilot_no_tab_map = true,
-                        -- python3_host_prog = "$HOME/.virtualenvs/neovim/bin/python",
-                },
-        },
+        options = function(local_vim)
+                -- set to true or false etc.
+                local_vim.opt.relativenumber = true -- sets vim.opt.relativenumber
+                local_vim.opt.number = true -- sets vim.opt.number
+                local_vim.opt.spell = false -- sets vim.opt.spell
+                local_vim.opt.signcolumn = "auto" -- sets vim.opt.signcolumn to auto
+                local_vim.opt.wrap = false -- sets vim.opt.wrap
+                local_vim.opt.tabstop = 4
+                local_vim.opt.softtabstop = 4
+                local_vim.opt.shiftwidth = 4
+                local_vim.opt.expandtab = true
+                local_vim.opt.scrolloff = 7
+                local_vim.opt.autoindent = true
+                local_vim.opt.smartindent = true
+                -- .local_vim.opt.columns=120
+                local_vim.opt.linebreak = true
+                local_vim.g.mapleader = " " -- sets vim.g.mapleader
+                local_vim.g.autoformat_enabled = true -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+                local_vim.g.cmp_enabled = true -- enable completion at start
+                local_vim.g.autopairs_enabled = true -- enable autopairs at start
+                local_vim.g.diagnostics_enabled = true -- enable diagnostics at start
+                local_vim.g.status_diagnostics_enabled = true -- enable diagnostics in statusline
+                local_vim.g.icons_enabled = true -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+                local_vim.g.ui_notifications_enabled = true -- disable notifications when toggling UI elements
+                local_vim.g.copilot_no_tab_map = true
+                -- python3_host_prog = "$HOME/.virtualenvs/neovim/bin/python"
+                local_vim.g.loaded_remote_plugins = nil
+                return local_vim
+        end
+        ,
         -- If you need more control, you can use the function()...end notation
         -- options = function(local_vim)
         --   local_vim.opt.relativenumber = true
@@ -83,10 +82,10 @@ local config = {
         -- Set dashboard header
         header = {
                 " █████  ███████ ████████ ██████   ██████",
-                "██   ██ ██   ██  ██   ██ ██  ██",
-                "███████ ███████  ██  ██████  ██  ██",
-                "██   ██    ██  ██  ██   ██ ██  ██",
-                "██   ██ ███████  ██  ██   ██  ██████",
+                "██   ██ ██         ██    ██   ██  ██  ██",
+                "███████ ███████    ██    ██████   ██  ██",
+                "██   ██      ██    ██    ██   ██  ██  ██",
+                "██   ██ ███████    ██    ██   ██  ██████",
                 " ",
                 "  ███    ██ ██    ██ ██ ███    ███",
                 "  ████   ██ ██    ██ ██ ████  ████",
@@ -346,7 +345,8 @@ local config = {
                         ["<C-k>"] = { ":cprev<cr>", desc = "Prev QF item" },
                         ["<C-j>"] = { ":cnext<cr>", desc = "Next QF item" },
                         -- magma nvim jupyter extension
-                        ["<LocalLeader>r"] = { ":<C-u>MagmaEvaluateVisual<cr>", desc = "evaluate selection", silent = true },
+                        ["<LocalLeader>r"] = { ":<C-u>MagmaEvaluateVisual<cr>", desc = "evaluate selection",
+                                silent = true },
                 },
         },
 
@@ -492,7 +492,7 @@ local config = {
         -- anything that doesn't fit in the normal config locations above can go here
         polish = function()
                 vim.cmd "set path+=**"
-                require("telescope").load_extension "cmake4vim"
+                -- require("telescope").load_extension "cmake4vim"
                 -- Set up custom filetypes
                 -- vim.filetype.add {
                 --   extension = {

@@ -57,13 +57,13 @@ return {
     end,
   },
   -- jupyter notebook support
-  -- {
-  --   "dccsillag/magma-nvim",
-  --   run = "UpdateRemotePlugins",
-  --   -- config = require "user.plugins.magma-nvim",
-  --   config = function()
-  --     vim.cmd "let g:magma_automatically_open_output = v:false"
-  --     vim.cmd [[let g:magma_image_provider = "ueberzug"]]
-  --   end,
-  -- },
+  {
+    "dccsillag/magma-nvim",
+    run = ":UpdateRemotePlugins",
+    -- config = require "user.plugins.magma-nvim",
+    config = function()
+      vim.cmd "let g:magma_automatically_open_output = v:false"
+      vim.cmd [[let g:magma_image_provider = "ueberzug"]]
+    end,
+  },
 }
