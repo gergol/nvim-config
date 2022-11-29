@@ -278,7 +278,7 @@ local config = {
                         ["<F5>"] = { ":call vimspector#Continue()<cr>", silent = true, desc = "Continue" },
                         ["<S-F11>"] = { ":call vimspector#StepOut()<cr>", silent = true, desc = "Step out" },
                         ["<F11>"] = { ":call vimspector#StepInto()<cr>", silent = true, desc = "Step into" },
-                        ["<C-K>"] = { ":call vimspector#BalloonEval()<cr>", silent = true, desc = "Hover" },
+                        ["<C-K>"] = { "<Plug>VimspectorBalloonEval", silent = true, desc = "Evaluate popup" },
                         ["<leader>dd"] = { ":call vimspector#Launch()<cr>", desc = "Launch debugging" },
                         ["<leader>dc"] = {
                                 ":call GotoWindowNoMax(g:vimspector_session_windows.code)<cr>",
@@ -303,6 +303,10 @@ local config = {
                         ["<leader>do"] = {
                                 ":call GotoWindowNoMax(g:vimspector_session_windows.output)<cr>",
                                 desc = "Focus output",
+                        },
+                        ["<leader>di"] = {
+                                "<Plug>VimspectorBalloonEval",
+                                desc = "Evaluate popup", silent = true,
                         },
                         ["<leader>de"] = { ":call vimspector#Reset()<cr>", desc = "Stop debugging" },
                         -- alternative bindings
