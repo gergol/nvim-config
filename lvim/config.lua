@@ -175,6 +175,8 @@ lvim.builtin.which_key.mappings["h"] = {
   -- ' = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
 }
 
+lvim.keys.normal_mode["gh"] = "<cmd>ClangdSwitchSourceHeader<cr>"
+
 lvim.builtin.which_key.mappings["1"] = { ":BufferLineCyclePrev<cr>", "Prev buffer" }
 lvim.builtin.which_key.mappings["2"] = { ":BufferLineCycleNext<cr>", "Next buffer" }
 lvim.builtin.which_key.mappings["m"] = { ":MaximizerToggle!<cr>", "Maximize window" }
