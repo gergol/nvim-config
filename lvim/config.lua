@@ -223,7 +223,6 @@ lvim.keys.normal_mode["<F10>"] = ":call vimspector#StepOver()<cr>"
 lvim.keys.normal_mode["<F5>"] = ":call vimspector#Continue()<cr>"
 lvim.keys.normal_mode["<S-F11>"] = ":call vimspector#StepOut()<cr>"
 lvim.keys.normal_mode["<F11>"] = ":call vimspector#StepInto()<cr>"
-lvim.keys.normal_mode["<C-K>"] = "<Plug>VimspectorBalloonEval"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
