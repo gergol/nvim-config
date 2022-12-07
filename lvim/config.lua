@@ -189,9 +189,10 @@ lvim.builtin.which_key.mappings["h"] = {
   j = { function() require("harpoon.ui").nav_file(1) end, "Go to file 1" },
   k = { function() require("harpoon.ui").nav_file(2) end, "Go to file 2" },
   l = { function() require("harpoon.ui").nav_file(3) end, "Go to file 3" },
-  -- ; = { function() require("harpoon.ui").nav_file(4) end, "Go to file 4" }
-  -- ' = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
 }
+
+lvim.builtin.which_key.mappings["h"][";"] = { function() require("harpoon.ui").nav_file(4) end, "Go to file 4" }
+lvim.builtin.which_key.mappings["h"]["'"] = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
 
 lvim.keys.normal_mode["gh"] = "<cmd>ClangdSwitchSourceHeader<cr>"
 
