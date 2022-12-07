@@ -12,6 +12,8 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
+
+vim.g.python3_host_prog = "$HOME/.virtualenvs/neovim/bin/python"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -102,7 +104,7 @@ lvim.builtin.which_key.mappings["f"] = {
   -- gt = { function() require("telescope.builtin").git_status() end, "Git status" },
   -- gb = { function() require("telescope.builtin").git_branches() end, "Git branches" },
   -- gc = { function() require("telescope.builtin").git_commits() end, "Git commits" },
-  f = { function() require("telescope.builtin").find_files() end, "Search files" },
+  f = { function() require("telescope.builtin").git_files() end, "Search files" },
   F = {
     function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
     "Search all files",
@@ -291,7 +293,7 @@ require("lvim.lsp.manager").setup("clangd", {
     "--header-insertion-decorators",
     "--pch-storage=memory",
     "--suggest-missing-includes",
-    "--malloc-trim",
+    -- "--malloc-trim",
     --    "--all-scopes-completion",
     "-j=6",
     "--offset-encoding=utf-16"
