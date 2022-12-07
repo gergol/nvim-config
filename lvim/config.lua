@@ -14,6 +14,9 @@ lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
 
 vim.g.python3_host_prog = "$HOME/.virtualenvs/neovim/bin/python"
+vim.opt.relativenumber = true
+vim.opt.path:append '**'
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -62,8 +65,7 @@ lvim.builtin.telescope.pickers.lsp_references.theme = nil
 lvim.builtin.telescope.pickers.lsp_definitions.theme = nil
 lvim.builtin.telescope.pickers.lsp_declarations.theme = nil
 lvim.builtin.telescope.pickers.lsp_implementations.theme = nil
-
--- Change theme settings
+lvim.builtin.telescope.defaults.path_display = nil -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
 
@@ -121,6 +123,20 @@ lvim.builtin.which_key.mappings["f"] = {
   -- sr = { function() require("telescope.builtin").registers() end, "Search registers" },
   -- sk = { function() require("telescope.builtin").keymaps() end, "Search keymaps" },
   -- sc = { function() require("telescope.builtin").commands() end, "Search commands" },
+}
+
+lvim.builtin.which_key.mappings["b"] = {
+  name = "+Cmake",
+  B = { ":CMake<cr>", "Create CMake project" },
+  b = { ":CMakeBuild<cr>", "Build CMake project" },
+  t = { ":Telescope cmake4vim select_build_type<cr>", "Select CMake build type" },
+  T = { ":Telescope cmake4vim select_target<cr>", "Select CMake target" },
+  k = { ":Telescope cmake4vim select_kit<cr>", "Select CMake kit" },
+  C = { ":CMakeClean<cr>", "Clean project" },
+  s = { ":CMakeCompileSource<cr>", "Compile current buffer" },
+  r = { ":CMakeResetAndReload<cr>", "Reset cmake cache" },
+  R = { ":CMakeReset<cr>", "Reset build folder completely" },
+  i = { ":CMakeInfo<cr>", "Info" }
 }
 
 lvim.builtin.which_key.mappings["t"] = {
@@ -222,6 +238,7 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "cpp",
   "javascript",
   "json",
   "lua",
@@ -232,6 +249,14 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+}
+
+lvim.builtin.lualine.sections.lualine_c = {
+  { "cmake4vim",
+    prefix = "", -- Text to show befor the actual configuration
+    cmake4vim_separator = ">", -- Seperator used between the configuration items
+    colored = true, -- Displays filetype icon in color if set to true
+  }
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -366,10 +391,34 @@ lvim.plugins = {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
-  { "tpope/vim-abolish" },
-  { "szw/vim-maximizer" },
+  { "windwp/nvim-ts-autotag" }, { "tpope/vim-abolish" },
+  { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  -- {
+  --     "zbirenbaum/copilot.lua",
+  --     event = { "VimEnter" },
+  --     config = function()
+  --         vim.defer_fn(function()
+  --             require("copilot").setup {
+  --                 plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+  --             }
+  --         end, 100)
+  --     end,
+  -- },
+  -- {
+  --     "zbirenbaum/copilot-cmp",
+  --     after = { "copilot.lua" },
+  --     config = function()
+  --         require("copilot_cmp").setup()
+  --     end,
+  -- },
+  { "github/copilot.vim" },
   { "ThePrimeagen/harpoon" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  {
+    "ilyachur/cmake4vim",
+    requires = { "SantinoKeupp/telescope-cmake4vim.nvim", "SantinoKeupp/lualine-cmake4vim.nvim" },
+    config = function() require("user.plugins.cmake4vim").setup() end,
+  },
   { "puremourning/vimspector", setup = function()
     vim.cmd [[
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
@@ -408,5 +457,7 @@ let g:vimspector_bottombar_height = 40
 --   callback = function()
 --     -- let treesitter use bash highlight for zsh files as well
 --     require("nvim-treesitter.highlight").attach(0, "bash")
+--   end,
+-- })
 --   end,
 -- })
