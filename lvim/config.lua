@@ -140,7 +140,6 @@ lvim.builtin.which_key.mappings["b"] = {
 }
 
 lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>Telescope lsp_references<cr>", "Find references" }
-lvim.builtin.which_key.mappings["l"]["A"] = { function() vim.lsp.buf.code_action() end, "Range LSP code action" }
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Terminal",
