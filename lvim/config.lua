@@ -146,8 +146,16 @@ lvim.builtin.which_key.vmappings["l"] = {
 }
 
 lvim.builtin.which_key.mappings["t"] = {
-  name = "+Terminal",
-  j = { ":FloatermToggle<cr>" }
+  name = "+GoTo",
+  t = { function()
+    local buf = vim.api.nvim_get_current_buf()
+    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+    if ft == "cpp" then
+      vim.cmd([[:execute ':find ' . 'test_' . expand('%:t:r') . '.cpp']])
+    end
+  end
+    , "Test"
+  }
 }
 
 lvim.builtin.which_key.mappings["d"] = {
