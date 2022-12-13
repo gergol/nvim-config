@@ -405,6 +405,7 @@ lvim.plugins = {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
+  -- { 'tpope/vim-dispatch' },
   { 'ThePrimeagen/vim-be-good' },
   { "windwp/nvim-ts-autotag" }, { "tpope/vim-abolish" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },

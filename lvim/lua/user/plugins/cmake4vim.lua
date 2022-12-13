@@ -7,6 +7,7 @@ return {
     vim.cmd "let g:cmake_reload_after_save = 1"
     vim.cmd "let g:cmake_compile_commands = 1"
     vim.cmd "let g:cmake_compile_commands_link='.'"
+    vim.cmd "let g:cmake_build_executor='term'"
     vim.cmd [[ let g:cmake_kits = {
             \  "gcc": {
             \    "compilers": {
