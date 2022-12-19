@@ -211,6 +211,7 @@ lvim.builtin.which_key.mappings["h"]["'"] = { function() require("harpoon.ui").n
 
 lvim.keys.normal_mode["gh"] = "<cmd>ClangdSwitchSourceHeader<cr>"
 
+lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" }
 lvim.builtin.which_key.mappings["1"] = { ":BufferLineCyclePrev<cr>", "Prev buffer" }
 lvim.builtin.which_key.mappings["2"] = { ":BufferLineCycleNext<cr>", "Next buffer" }
 lvim.builtin.which_key.mappings["m"] = { ":MaximizerToggle!<cr>", "Maximize window" }
@@ -407,6 +408,7 @@ lvim.plugins = {
   --       cmd = "TroubleToggle",
   --     },
   -- { 'tpope/vim-dispatch' },
+  { 'szw/vim-maximizer' },
   { 'ThePrimeagen/vim-be-good' },
   { "windwp/nvim-ts-autotag" }, { "tpope/vim-abolish" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
