@@ -438,6 +438,10 @@ lvim.plugins = {
   --         require("copilot_cmp").setup()
   --     end,
   -- },
+  { "ray-x/lsp_signature.nvim" ,
+    event = "BufRead",
+    config = { require "lsp_signature".setup() }
+  },
   { "github/copilot.vim" },
   { "ThePrimeagen/harpoon" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
