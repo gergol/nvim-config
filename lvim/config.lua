@@ -438,9 +438,9 @@ lvim.plugins = {
   --         require("copilot_cmp").setup()
   --     end,
   -- },
-  { "ray-x/lsp_signature.nvim" ,
+  { "ray-x/lsp_signature.nvim",
     event = "BufRead",
-    config = { require "lsp_signature".setup() }
+    config = function() require "lsp_signature".setup() end,
   },
   { "github/copilot.vim" },
   { "ThePrimeagen/harpoon" },
