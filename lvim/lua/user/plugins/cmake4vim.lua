@@ -22,8 +22,16 @@ return {
             \      "CXX": "/usr/bin/clang++"
             \    },
             \    "generator": "Ninja"
+            \  },
+            \  "apple clang": {
+            \    "compilers": {
+            \      "C": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc",
+            \      "CXX": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++"
+            \    },
+            \    "generator": "Ninja"
             \  }
             \}
             ]]
   end,
 }
+
