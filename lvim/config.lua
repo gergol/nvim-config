@@ -205,7 +205,6 @@ lvim.builtin.which_key.mappings["h"] = {
   k = { function() require("harpoon.ui").nav_file(2) end, "Go to file 2" },
   l = { function() require("harpoon.ui").nav_file(3) end, "Go to file 3" },
 }
-
 lvim.builtin.which_key.mappings["h"][";"] = { function() require("harpoon.ui").nav_file(4) end, "Go to file 4" }
 lvim.builtin.which_key.mappings["h"]["'"] = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
 
@@ -447,6 +446,9 @@ lvim.plugins = {
   --         require("copilot_cmp").setup()
   --     end,
   -- },
+  { 'iamcco/markdown-preview.nvim',
+    run = function() vim.fn["mkdp#util#install"]() end
+  },
   { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' },
   { "github/copilot.vim" },
   { "ThePrimeagen/harpoon" },
