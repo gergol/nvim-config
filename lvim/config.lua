@@ -209,6 +209,15 @@ lvim.builtin.which_key.mappings["h"] = {
 lvim.builtin.which_key.mappings["h"][";"] = { function() require("harpoon.ui").nav_file(4) end, "Go to file 4" }
 lvim.builtin.which_key.mappings["h"]["'"] = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
 
+lvim.builtin.which_key.mappings["p"] = {
+  name = "+(i)python",
+  r = { ":MagmaEvaluateLine<cr>", "evaluate line" },
+  c = { ":MagmaReevaluateCell<cr>", "evaluate cell" },
+  d = { ":MagmaDelete<cr>", "delete" },
+  o = { ":MagmaShowOutput<cr>", "show output" },
+}
+
+
 lvim.keys.normal_mode["gh"] = "<cmd>ClangdSwitchSourceHeader<cr>"
 
 lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" }
@@ -438,6 +447,7 @@ lvim.plugins = {
   --         require("copilot_cmp").setup()
   --     end,
   -- },
+  { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' },
   { "github/copilot.vim" },
   { "ThePrimeagen/harpoon" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
