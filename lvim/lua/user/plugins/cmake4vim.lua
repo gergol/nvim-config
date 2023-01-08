@@ -18,8 +18,8 @@ return {
             \  },
             \  "clang": {
             \    "compilers": {
-            \      "C": "/usr/bin/clang",
-            \      "CXX": "/usr/bin/clang++"
+            \      "C": "clang",
+            \      "CXX": "clang++"
             \    },
             \    "generator": "Ninja"
             \  },
@@ -34,4 +34,5 @@ return {
             ]]
   end,
 }
+
 
