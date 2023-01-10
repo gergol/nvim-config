@@ -26,7 +26,26 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-z>"] = "<nop>" -- disable tty ctrl-z suspend to prevent accidentaly closing vim
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.insert_mode["jk"] = "<esc>:w!<cr>"
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok or cmp == nil then
+  cmp = {
+    mapping = function(...) end,
+    setup = { filetype = function(...) end, cmdline = function(...) end },
+    config = { sources = function(...) end },
+  }
+end
+local function t(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 
+lvim.builtin.cmp.mapping["<c-h>"] = cmp.mapping(function()
+  vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](t "<Tab>"), "n", true)
+end)
+lvim.keys.insert_mode["<M-]>"] = { "<Plug>(copilot-next)", { silent = true } }
+lvim.keys.insert_mode["<M-[>"] = { "<Plug>(copilot-previous)", { silent = true } }
+lvim.keys.insert_mode["<M-\\>"] = { "<Cmd>vertical Copilot panel<CR>", { silent = true } }
+-- lvim.builtin.cmp.mapping["<Tab>"] = cmp.mapping(M.tab, { "i", "c" })
+-- lvim.builtin.cmp.mapping["<S-Tab>"] = cmp.mapping(M.shift_tab, { "i", "c" })
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -465,7 +484,29 @@ lvim.plugins = {
     run = function() vim.fn["mkdp#util#install"]() end
   },
   { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' },
-  { "github/copilot.vim" },
+  { "github/copilot.vim",
+    setup = function()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_tab_fallback = ""
+      vim.g.copilot_filetypes = {
+        ["*"] = false,
+        python = true,
+        lua = true,
+        go = true,
+        rust = true,
+        html = true,
+        c = true,
+        cpp = true,
+        java = true,
+        javascript = true,
+        typescript = true,
+        javascriptreact = true,
+        typescriptreact = true,
+        terraform = true,
+      }
+    end
+  },
   { "ThePrimeagen/harpoon" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   {
