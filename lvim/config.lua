@@ -148,6 +148,8 @@ lvim.builtin.which_key.mappings["f"] = {
   o = { function() require("telescope.builtin").oldfiles() end, "Search history" },
   c =
   { function() require("telescope.builtin").grep_string() end, "Search for word under cursor" },
+  s = { function() require('session-lens').search_session() end, "Search sessions" },
+
   -- sb = { function() require("telescope.builtin").git_branches() end, "Git branches" },
   -- sh = { function() require("telescope.builtin").help_tags() end, "Search help" },
   -- sm = { function() require("telescope.builtin").man_pages() end, "Search man" },
@@ -484,6 +486,24 @@ lvim.plugins = {
     run = function() vim.fn["mkdp#util#install"]() end
   },
   { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' },
+  {
+    'rmagatti/auto-session',
+    config = function()
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+
+      }
+    end
+  },
+  {
+    'rmagatti/session-lens',
+    requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('session-lens').setup()
+    end
+  },
   { "github/copilot.vim",
     setup = function()
       vim.g.copilot_no_tab_map = true
