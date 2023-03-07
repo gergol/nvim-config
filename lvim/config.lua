@@ -99,7 +99,7 @@ lvim.builtin.which_key.setup.plugins.presets.g = true
 lvim.builtin.which_key.setup.plugins.presets.text_objects = true
 lvim.builtin.which_key.setup.plugins.presets.motions = true
 lvim.builtin.project.active = true
-lvim.builtin.project.manual_mode = true
+lvim.builtin.project.manual_mode = false
 lvim.builtin.project.patterns["1"] = "CMakeLists.txt"
 lvim.builtin.project.patterns["2"] = ".git"
 lvim.builtin.project.patterns["3"] = ".hg"
@@ -108,6 +108,7 @@ lvim.builtin.project.patterns["5"] = ".svn"
 lvim.builtin.project.patterns["6"] = "Makefile"
 lvim.builtin.project.patterns["7"] = "package.json"
 lvim.builtin.project.patterns["8"] = "pom.xml"
+lvim.builtin.project.patterns["8"] = "setup.py"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
