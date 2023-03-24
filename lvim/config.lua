@@ -71,7 +71,6 @@ lvim.keys.insert_mode["<M-\\>"] = { "<Cmd>vertical Copilot panel<CR>", { silent 
 --     ["<C-k>"] = actions.move_selection_previous,
 --   },
 -- }
-
 -- Fix the awkward telescope defaults...
 lvim.builtin.telescope.pickers.find_files.previewer = nil
 lvim.builtin.telescope.pickers.find_files.theme = nil
@@ -86,8 +85,18 @@ lvim.builtin.telescope.pickers.lsp_definitions.theme = nil
 lvim.builtin.telescope.pickers.lsp_declarations.theme = nil
 lvim.builtin.telescope.pickers.lsp_implementations.theme = nil
 lvim.builtin.telescope.defaults.path_display = nil -- Change theme settings
+-- apply dynamic workspace symbol sorter hack
+-- see: https://github.com/nvim-telescope/telescope.nvim/issues/2104#issuecomment-1223790155
+lvim.builtin.telescope.pickers.lsp_dynamic_workspace_symbols = {
+  sorter = require('telescope').extensions.fzf.native_fzf_sorter(lvim.builtin.telescope.extensions.fzf)
+}
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
+-- lvim.builtin.telescope.on_config_done = function (telescope)
+--   local sorters = require "telescope.sorters"
+--   -- telescope.pickers.lsp_dynamic_workspace_symbols = sorters.get_generic_fuzzy_sorter()
+--   print(telescope)
+-- end
 
 lvim.builtin.which_key.setup.plugins.registers = true
 lvim.builtin.which_key.setup.plugins.marks = true
@@ -174,6 +183,7 @@ lvim.builtin.which_key.mappings["b"] = {
 }
 
 lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>Telescope lsp_references<cr>", "Find references" }
+lvim.builtin.which_key.mappings["l"]["S"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
 lvim.builtin.which_key.vmappings["l"] = {
   name = "+LSP",
   a = { function() vim.lsp.buf.code_action() end, "Code action (Doesnt work yet)" }
