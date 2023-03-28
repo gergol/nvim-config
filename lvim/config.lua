@@ -26,6 +26,22 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-z>"] = "<nop>" -- disable tty ctrl-z suspend to prevent accidentaly closing vim
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.insert_mode["jk"] = "<esc>:w!<cr>"
+-- disable arrow keys
+lvim.keys.normal_mode["<Up>"] = "<nop>"
+lvim.keys.normal_mode["<Down>"] = "<nop>"
+lvim.keys.normal_mode["<Left>"] = "<nop>"
+lvim.keys.normal_mode["<Right>"] = "<nop>"
+
+lvim.keys.visual_mode["<Up>"] = "<nop>"
+lvim.keys.visual_mode["<Down>"] = "<nop>"
+lvim.keys.visual_mode["<Left>"] = "<nop>"
+lvim.keys.visual_mode["<Right>"] = "<nop>"
+
+lvim.keys.insert_mode["<Up>"] = "<nop>"
+lvim.keys.insert_mode["<Down>"] = "<nop>"
+lvim.keys.insert_mode["<Left>"] = "<nop>"
+lvim.keys.insert_mode["<Right>"] = "<nop>"
+
 local cmp_ok, cmp = pcall(require, "cmp")
 if not cmp_ok or cmp == nil then
   cmp = {
