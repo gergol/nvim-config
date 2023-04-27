@@ -555,6 +555,7 @@ lvim.plugins = {
     end
   },
   { "ThePrimeagen/harpoon" },
+  {'akinsho/git-conflict.nvim', tag = "*", config = function() require('git-conflict').setup() end, },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   {
     "ilyachur/cmake4vim",
