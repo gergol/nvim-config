@@ -16,5 +16,5 @@ wk.register({
         l = { function() require("harpoon.ui").nav_file(3) end, "Go to file 3" },
         n = { function() require("harpoon.ui").nav_file(4) end, "Go to file 4" },
         m  = { function() require("harpoon.ui").nav_file(5) end, "Go to file 5" }
-    }, { prefix = "<leader>" }
-})
+    }
+}, { prefix = "<leader>" })

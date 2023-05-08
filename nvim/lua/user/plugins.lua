@@ -65,6 +65,8 @@ return require('packer').startup(function(use)
     use({ 'rose-pine/neovim', as = 'rose-pine' })
 
     use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use( 'kdheepak/lazygit.nvim')
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
