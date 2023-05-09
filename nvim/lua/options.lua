@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.localmapleader = " "
 -- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -27,8 +29,9 @@ vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entere
 vim.opt.hidden = true
 -- for nvim-tree
 -- disable netrw at the very start of your init.lua (strongly advised)
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 --
+vim.g.signcoumn = 'auto'
 
 
