@@ -34,4 +34,8 @@ vim.g.loaded_netrwPlugin = 1
 --
 vim.g.signcoumn = 'auto'
 
-
+if vim.fn.has('win64') then
+  vim.g.python3_host_prog = vim.fn.expand("$HOME/.virtualenvs/neovim/Scripts/python.exe")
+else
+  vim.g.python3_host_prog = vim.fn.expand("$HOME/.virtualenvs/neovim/bin/python")
+end

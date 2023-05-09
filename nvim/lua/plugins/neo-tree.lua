@@ -11,7 +11,7 @@ return {
         { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Open File Tree" },
         { "<leader>o", "<cmd>NeoTreeFocus<cr>", desc = "Focus File Tree" },
     },
-    config = {
+    opts = {
         close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
         enable_git_status = true,
