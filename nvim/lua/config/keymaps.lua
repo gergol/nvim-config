@@ -1,6 +1,7 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<C-z>", "<nop>") -- disable tty ctrl-z suspend to prevent accidentaly closing vim)
 vim.keymap.set("n", "<C-s>", ":w<cr>")
+vim.keymap.set("n", "<leader>ww", ":w<cr>")
 vim.keymap.set("i", "jk", "<esc>:w!<cr>")
 -- disabe arrow keys
 vim.keymap.set("n", "<Up>", "<nop>")
@@ -18,6 +19,8 @@ vim.keymap.set("i", "<Down>", "<nop>")
 vim.keymap.set("i", "<Left>", "<nop>")
 vim.keymap.set("i", "<Right>", "<nop>")
 
+vim.keymap.set("n", "<leader>1", ":BufferLineCyclePrev<cr>", { silent = true})
+vim.keymap.set("n", "<leader>2", ":BufferLineCycleNext<cr>", { silent = true})
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -44,6 +47,9 @@ vim.keymap.set('n', "<S-F11>", ":call vimspector#StepOut()<cr>")
 vim.keymap.set('n', "<F11>", ":call vimspector#StepInto()<cr>")
 
 vim.keymap.set('n', "gh", "<cmd>ClangdSwitchSourceHeader<cr>")
+
+vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeFocusToggle<cr>")
+vim.keymap.set('n', '<leader>o', "<cmd>NeoTreeFocus<cr>")
 
 
 
