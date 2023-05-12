@@ -39,7 +39,7 @@ return {
         nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, "Add Workspace Folder")
         nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder")
         nmap('<leader>lwl', function()
-          print(vim.inspect(vim.lsp.buf.list_workleader_folders()))
+          print(vim.inspect(vim.lsp.buf.list_workspace()))
         end, "List Workspace Folders")
         nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
         nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
