@@ -66,4 +66,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
   group = highlight_group,
   pattern = '*',
-}) 
+})
+
+local os_name = vim.loop.os_uname()
+
+if os_name == 'Darwin' or os_name == 'Linux' then
+  vim.g.python3_host_prog = vim.fn.expand("$HOME/.virtualenvs/neovim/Scripts/python.exe")
+else
+  vim.g.python3_host_prog = vim.fn.expand("$HOME/.virtualenvs/neovim/bin/python")
+end
