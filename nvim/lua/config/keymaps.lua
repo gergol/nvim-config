@@ -59,7 +59,7 @@ vim.keymap.set('n', "gh", "<cmd>ClangdSwitchSourceHeader<cr>")
 vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeFocusToggle<cr>")
 vim.keymap.set('n', '<leader>o', "<cmd>NeoTreeFocus<cr>")
 -- paste in visual mode without overwriting paste register
-vim.keymap.set('v', 'p', '_dP')
+vim.keymap.set('v', 'p', '"_dP', {silent = true, noremap = true})
 
 vim.keymap.set('n', '<esc><esc>', '<cmd>nohlsearch<cr>')
 
