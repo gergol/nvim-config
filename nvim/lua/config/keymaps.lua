@@ -71,6 +71,32 @@ vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 
+
+
+
+
+	
+
+-- vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
+-- local cmp_ok, cmp = pcall(require, "cmp")
+-- if not cmp_ok or cmp == nil then
+--   cmp = {
+--     mapping = function(...) end,
+--     setup = { filetype = function(...) end, cmdline = function(...) end },
+--     config = { sources = function(...) end },
+--   }
+-- end
+-- local function t(str)
+--   return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
+--
+-- cmp.mapping["<c-h>"] = cmp.mapping(function()
+--   vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](t "<Tab>"), "n", true)
+-- end)
+-- lvim.keys.insert_mode["<M-]>"] = { "<Plug>(copilot-next)", { silent = true } }
+-- lvim.keys.insert_mode["<M-[>"] = { "<Plug>(copilot-previous)", { silent = true } }
+-- lvim.keys.insert_mode["<M-\\>"] = { "<Cmd>vertical Copilot panel<CR>", { silent = true } }
+
 local wk = require('which-key')
 
 wk.register({
