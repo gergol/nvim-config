@@ -22,6 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup("plugins", {})
 
 require('config.keymaps')
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 -- See `:help telescope.builtin`
