@@ -73,7 +73,7 @@ vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<c-q>', require('misc.toggle_qf').toggle_qf)
 
-
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 	
 
