@@ -10,12 +10,13 @@ return {
 
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim',    tag = 'legacy',    opts = {} },
+    { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
   },
   init = function()
+    -- vim.lsp.set_log_level("debug")
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
@@ -46,7 +47,8 @@ return {
         nmap('<leader>lD', vim.lsp.buf.type_definition, "Type Definition")
         nmap('<leader>lR', "<cmd>Telescope lsp_references<cr>", "List References")
         nmap('<leader>lr', vim.lsp.buf.rename, "Rename")
-        vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { buffer = ev.buffer, desc = "LSP: Code action" })
+        vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action,
+          { buffer = ev.buffer, desc = "LSP: Code action" })
         nmap('gr', vim.lsp.buf.references, "Goto References")
         nmap('<leader>lf', function()
           vim.lsp.buf.format { async = true }
@@ -70,6 +72,7 @@ return {
           -- to add more checks, create .clang-tidy file in the root directory
           -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
           "--clang-tidy",
+          "--clang-tidy-checks=*",
           "--completion-style=bundled",
           "--cross-file-rename",
           "--header-insertion=iwyu",
