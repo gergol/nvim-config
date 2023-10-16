@@ -82,7 +82,7 @@ return {
           -- "--malloc-trim",
           --    "--all-scopes-completion",
           "-j=6",
-          "--offset-encoding=utf-16"
+          "--offset-encoding=utf-8"
           --    "--log=verbose",
           --    "--pretty",
         },
