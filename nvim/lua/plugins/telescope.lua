@@ -65,7 +65,7 @@ return  {
     {'<leader>fd', function() require('telescope.builtin').diagnostics() end, desc = '[S]earch [D]iagnostics' },
 
     {'<leader>?', function() require('telescope.builtin').oldfiles() end, desc = '[?] Find recently opened files' },
-    {'<leader>B', function() require('telescope.builtin').buffers() end, desc = '[ ] Find existing buffers' },
+    {'<leader>fb', function() require('telescope.builtin').buffers() end, desc = '[b] Find existing buffers' },
     {'<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
