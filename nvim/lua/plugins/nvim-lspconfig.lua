@@ -14,6 +14,7 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
+    'nvimdev/lspsaga.nvim',
   },
   init = function()
     -- vim.lsp.set_log_level("debug")
@@ -47,7 +48,7 @@ return {
         nmap('<leader>lD', vim.lsp.buf.type_definition, "Type Definition")
         nmap('<leader>lR', "<cmd>Telescope lsp_references<cr>", "List References")
         nmap('<leader>lr', vim.lsp.buf.rename, "Rename")
-        vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action,
+        vim.keymap.set({ 'n', 'v' }, '<leader>la', function() vim.cmd('Lspsaga code_action') end,
           { buffer = ev.buffer, desc = "LSP: Code action" })
         nmap('gr', vim.lsp.buf.references, "Goto References")
         nmap('<leader>lf', function()
