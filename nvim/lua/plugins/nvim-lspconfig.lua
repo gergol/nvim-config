@@ -82,7 +82,7 @@ return {
           "--suggest-missing-includes",
           -- "--malloc-trim",
           --    "--all-scopes-completion",
-          "-j=6",
+          "-j=16",
           "--offset-encoding=utf-16"
           --    "--log=verbose",
           --    "--pretty",
