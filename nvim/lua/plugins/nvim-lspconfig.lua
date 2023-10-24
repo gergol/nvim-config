@@ -83,7 +83,7 @@ return {
           -- "--malloc-trim",
           --    "--all-scopes-completion",
           "-j=6",
-          "--offset-encoding=utf-8"
+          "--offset-encoding=utf-16"
           --    "--log=verbose",
           --    "--pretty",
         },
@@ -124,11 +124,21 @@ return {
 
     mason_lspconfig.setup_handlers {
       function(server_name)
-        require('lspconfig')[server_name].setup {
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-        }
+        if server_name == 'clangd' then
+          require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+            cmd = servers[server_name].cmd,
+            init_options = servers[server_name].init_options,
+          }
+        else
+          require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+          }
+        end
       end,
     }
   end,
