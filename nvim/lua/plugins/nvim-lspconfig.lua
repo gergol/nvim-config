@@ -95,6 +95,7 @@ return {
         },
 
       },
+      marksman = {},
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},

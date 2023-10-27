@@ -17,6 +17,7 @@
   "lualine-cmake4vim.nvim": { "branch": "main", "commit": "9aaf49b65b554c7cca0bbf29b43fed5f95aee74d" },
   "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
+  "markdowny.nvim": { "branch": "main", "commit": "083782f05e67cc08c6378affec9f55a913ac55f4" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "09be3766669bfbabbe2863c624749d8da392c916" },
   "mason-null-ls.nvim": { "branch": "main", "commit": "ae0c5fa57468ac65617f1bf821ba0c3a1e251f0c" },
   "mason.nvim": { "branch": "main", "commit": "cd7835b15f5a4204fc37e0aa739347472121a54c" },
