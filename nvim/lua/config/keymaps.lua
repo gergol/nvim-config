@@ -19,8 +19,8 @@ vim.keymap.set("i", "<Down>", "<nop>")
 vim.keymap.set("i", "<Left>", "<nop>")
 vim.keymap.set("i", "<Right>", "<nop>")
 
-vim.keymap.set("n", "<leader>1", ":BufferLineCyclePrev<cr>", { silent = true})
-vim.keymap.set("n", "<leader>2", ":BufferLineCycleNext<cr>", { silent = true})
+vim.keymap.set("n", "<leader>1", ":BufferLineCyclePrev<cr>", { silent = true })
+vim.keymap.set("n", "<leader>2", ":BufferLineCycleNext<cr>", { silent = true })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -59,7 +59,7 @@ vim.keymap.set('n', "gh", "<cmd>ClangdSwitchSourceHeader<cr>")
 vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeFocusToggle<cr>")
 vim.keymap.set('n', '<leader>o', "<cmd>NeoTreeFocus<cr>")
 -- paste in visual mode without overwriting paste register
-vim.keymap.set('v', 'p', '"_dP', {silent = true, noremap = true})
+vim.keymap.set('v', 'p', '"_dP', { silent = true, noremap = true })
 
 vim.keymap.set('n', '<esc><esc>', '<cmd>nohlsearch<cr>')
 
@@ -74,7 +74,7 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('n', '<c-q>', require('misc.toggle_qf').toggle_qf)
 
 
-	
+
 
 -- vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
 -- local cmp_ok, cmp = pcall(require, "cmp")
@@ -95,6 +95,8 @@ vim.keymap.set('n', '<c-q>', require('misc.toggle_qf').toggle_qf)
 -- lvim.keys.insert_mode["<M-]>"] = { "<Plug>(copilot-next)", { silent = true } }
 -- lvim.keys.insert_mode["<M-[>"] = { "<Plug>(copilot-previous)", { silent = true } }
 -- lvim.keys.insert_mode["<M-\\>"] = { "<Cmd>vertical Copilot panel<CR>", { silent = true } }
+
+vim.keymap.set('n', '<leader>m', ':MaximizerToggle!<CR>', { noremap = true, silent = true })
 
 local wk = require('which-key')
 
@@ -151,6 +153,13 @@ wk.register({
 		i = { ":CMakeInfo<cr>", "Info" }
 	}
 }, { prefix = "<leader>" })
+
+-- wk.register({
+-- 	m = {
+-- 		name = "+Markdown",
+-- 		p = { ":MarkdownPreview<cr>", "Preview markdown" },
+-- 	}
+-- }, { prefix = "<leader>", buffer = 0 })
 
 wk.register({
 	f = {
