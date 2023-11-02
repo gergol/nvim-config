@@ -45,14 +45,21 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>D', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 
-vim.keymap.set('n', "<F5>", ":call vimspector#Continue()<cr>")
-vim.keymap.set('n', "<F4>", ":call vimspector#Restart()<cr>")
-vim.keymap.set('n', "<F6>", ":call vimspector#Pause()<cr>")
-vim.keymap.set('n', "<F9>", ":call vimspector#ToggleBreakpoint()<cr>")
-vim.keymap.set('n', "<S-F9>", ":call vimspector#ToggleAdvancedBreakpoint()<cr>")
-vim.keymap.set('n', "<F10>", ":call vimspector#StepOver()<cr>")
-vim.keymap.set('n', "<S-F11>", ":call vimspector#StepOut()<cr>")
-vim.keymap.set('n', "<F11>", ":call vimspector#StepInto()<cr>")
+vim.keymap.set('n', "<F5>", function()
+	require('dap').continue()
+end
+)
+-- vim.keymap.set('n', "<F4>", ":call vimspector#Restart()<cr>")
+vim.keymap.set('n', "<F6>", require('dap').pause)
+vim.keymap.set('n', "<F9>", require('dap').toggle_breakpoint)
+vim.keymap.set('n', "<S-F9>", function()
+	-- doesn't seem to be called at all in ubunut terminal, because shift f9 does not get passed to vim
+	assert(false)
+	require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end)
+vim.keymap.set('n', "<F10>", require('dap').step_over)
+vim.keymap.set('n', "<S-F11>", require('dap').step_out)
+vim.keymap.set('n', "<F11>", require('dap').step_into)
 
 vim.keymap.set('n', "gh", "<cmd>ClangdSwitchSourceHeader<cr>")
 
@@ -100,6 +107,22 @@ vim.keymap.set('n', '<leader>m', ':MaximizerToggle!<CR>', { noremap = true, sile
 
 local wk = require('which-key')
 
+---jump to the window of specified dapui element
+---@param element string filetype of the element
+local function jump_to_element(element)
+	local visible_wins = vim.api.nvim_tabpage_list_wins(0)
+
+	for _, win in ipairs(visible_wins) do
+		local buf = vim.api.nvim_win_get_buf(win)
+		if vim.bo[buf].filetype == element then
+			vim.api.nvim_set_current_win(win)
+			return
+		end
+	end
+
+	vim.notify(("element '%s' not found"):format(element), vim.log.levels.WARN)
+end
+
 wk.register({
 	d = {
 		name = "+Debug",
@@ -109,31 +132,34 @@ wk.register({
 			"Focus code",
 		},
 		t = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.terminal)<cr>",
-			"Focus terminal",
+			function() jump_to_element("dapui_console") end,
+			"Focus console",
+		},
+		r = {
+			function() jump_to_element("dap-repl") end,
+			"Focus REPL",
 		},
 		v = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.variables)<cr>",
+			function() jump_to_element("dapui_scopes") end,
 			"Focus variables",
 		},
 		w = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.watches)<cr>",
+			function() jump_to_element("dapui_watches") end,
 			"Focus watches",
 		},
 		s = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.stack_trace)<cr>",
+			function() jump_to_element("dapui_stacks") end,
 			"Fockus stack trace",
 		},
-		o = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.output)<cr>",
-			"Focus output",
-		},
 		i = {
-			"<Plug>VimspectorBalloonEval",
-			"Evaluate popup",
+			function()
+				require("dapui").eval()
+				jump_to_element("dapui_hover")
+			end,
+			"Evaluate Expression",
 			silent = true,
 		},
-		e = { ":call vimspector#Reset()<cr>", "Stop debugging" },
+		e = { require('dap').disconnect, "Stop debugging" },
 	},
 
 }, { prefix = "<leader>" })
