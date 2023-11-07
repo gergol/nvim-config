@@ -14,25 +14,6 @@ return {
         -- in original vscode/launch.json the codelldb adapter is named lldb, so we need to copy the configuration over.
         local dap = require('dap')
         dap.adapters.lldb = dap.adapters.codelldb
-
-        dap.adapters.cmake = {
-
-          type = 'pipe',
-          pipe = '${pipe}',
-          executable = {
-            command = 'cmake',
-            args = { '--debugger', '--debugger-pipe=${pipe}', '.' }
-          }
-        }
-
-        dap.configurations.cmake = {
-          {
-            type = "cmake",
-            name = "Debug",
-            request = "launch",
-            program = "${file}",
-          },
-        }
       end,
     }, -- load default handlers
     ensure_installed = {
