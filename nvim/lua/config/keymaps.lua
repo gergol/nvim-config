@@ -108,27 +108,32 @@ vim.keymap.set('n', '<leader>m', ':MaximizerToggle!<CR>', { noremap = true, sile
 local wk = require('which-key')
 
 ---jump to the window of specified dapui element
----@param element string filetype of the element
+---@param element string filetype of the element or 'code_win' for the code window
 local function jump_to_element(element)
 	local visible_wins = vim.api.nvim_tabpage_list_wins(0)
-
+	local dap_configurations = require('dap').configurations
 	for _, win in ipairs(visible_wins) do
 		local buf = vim.api.nvim_win_get_buf(win)
-		if vim.bo[buf].filetype == element then
+		if vim.bo[buf].filetype == element
+				-- As we do not know the filetype of the code window, we have to check if
+				-- we can find a window with a file type that is also in the dap.configurations
+				-- We simply assume, that this is the code window
+				or element == "code_win" and dap_configurations[vim.bo[buf].filetype] ~= nil
+		then
 			vim.api.nvim_set_current_win(win)
 			return
 		end
 	end
-
 	vim.notify(("element '%s' not found"):format(element), vim.log.levels.WARN)
 end
 
 wk.register({
 	d = {
 		name = "+Debug",
-		d = { ":call vimspector#Launch()<cr>", "Launch debugging" },
+
+		d = { require('dap').continue, "Start debugging" },
 		c = {
-			":call GotoWindowNoMax(g:vimspector_session_windows.code)<cr>",
+			function() jump_to_element("code_win") end,
 			"Focus code",
 		},
 		t = {
