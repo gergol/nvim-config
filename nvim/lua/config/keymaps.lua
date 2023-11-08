@@ -49,7 +49,6 @@ vim.keymap.set('n', "<F5>", function()
 	require('dap').continue()
 end
 )
--- vim.keymap.set('n', "<F4>", ":call vimspector#Restart()<cr>")
 vim.keymap.set('n', "<F6>", require('dap').pause)
 vim.keymap.set('n', "<F9>", require('dap').toggle_breakpoint)
 vim.keymap.set('n', "<S-F9>", function()
@@ -79,29 +78,6 @@ vim.keymap.set('v', '>', '>gv')
 
 
 vim.keymap.set('n', '<c-q>', require('misc.toggle_qf').toggle_qf)
-
-
-
-
--- vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
--- local cmp_ok, cmp = pcall(require, "cmp")
--- if not cmp_ok or cmp == nil then
---   cmp = {
---     mapping = function(...) end,
---     setup = { filetype = function(...) end, cmdline = function(...) end },
---     config = { sources = function(...) end },
---   }
--- end
--- local function t(str)
---   return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
---
--- cmp.mapping["<c-h>"] = cmp.mapping(function()
---   vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](t "<Tab>"), "n", true)
--- end)
--- lvim.keys.insert_mode["<M-]>"] = { "<Plug>(copilot-next)", { silent = true } }
--- lvim.keys.insert_mode["<M-[>"] = { "<Plug>(copilot-previous)", { silent = true } }
--- lvim.keys.insert_mode["<M-\\>"] = { "<Cmd>vertical Copilot panel<CR>", { silent = true } }
 
 vim.keymap.set('n', '<leader>m', ':MaximizerToggle!<CR>', { noremap = true, silent = true })
 
