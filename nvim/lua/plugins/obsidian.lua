@@ -1,5 +1,10 @@
 local obsidian_root_dir = vim.fn.expand("~") .. "/nextcloud/obsidian/"
 
+local function create_new_note()
+  local user_input = vim.fn.input('Enter title: ')
+  vim.cmd('ObsidianNew ' .. user_input)
+end
+
 local opts =
 {
   -- Optional, and for backward compatibility. Setting this will use it as the default workspace
@@ -70,7 +75,7 @@ local opts =
     local suffix = ""
     if title ~= nil then
       -- If title is given, transform it into valid file name.
-      suffix = title:gsub("[^A-Za-z0-9-_+]", "")
+      suffix = title:gsub("[^A-Za-z0-9-_+ ]", "")
     else
       -- If title is nil, just add 4 random uppercase letters to the suffix.
       for _ = 1, 4 do
@@ -87,7 +92,12 @@ local opts =
   -- Optional, alternatively you can customize the frontmatter data.
   note_frontmatter_func = function(note)
     -- This is equivalent to the default frontmatter function.
-    local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+    local out = {
+      crated = os.date("!%Y-%m-%d %H:%M:%S"),
+      title = note.id,
+      aliases = note.aliases,
+      tags = note.tags
+    }
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
     if note.metadata ~= nil and require("obsidian").util.table_length(note.metadata) > 0 then
@@ -119,7 +129,7 @@ local opts =
   -- URL it will be ignored but you can customize this behavior here.
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
-    vim.fn.jobstart({ "open", url })   -- Mac OS
+    vim.fn.jobstart({ "open", url }) -- Mac OS
     -- vim.fn.jobstart({"xdg-open", url})  -- linux
   end,
 
@@ -176,5 +186,22 @@ return {
   },
   config = function()
     require("obsidian").setup(opts)
+
+    local wk = require("which-key")
+    wk.register({
+      ["b"] = {
+        name = "Obsidian",
+        ["o"] = { "<cmd>ObsidianOpen<cr>", "Open Obsidian" },
+        ["n"] = { create_new_note, "New Note" },
+        ["s"] = { "<cmd>ObsidianSearch<cr>", "Search" },
+        ["b"] = { "<cmd>ObsidianBacklinks<cr>", "Backlinks" },
+        ["f"] = { "<cmd>ObsidianFollowLink<cr>", "Follow Link" },
+        ["c"] = { "<cmd>ObsidianDailyNote<cr>", "Daily Note" },
+        ["q"] = { "<cmd>ObsidianQuickSwitch<cr>", "Quick Switch" },
+        ["t"] = { "<cmd>ObsidianToggleWorkspace<cr>", "Toggle Workspace" },
+      },
+    }, {
+      prefix = "<leader>",
+    })
   end,
 }
