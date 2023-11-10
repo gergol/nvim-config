@@ -33,7 +33,24 @@ return {
     \  }
     \}
     ]]
+
+    local wk = require("which-key")
+    wk.register({
+      b = {
+        name = "+Cmake",
+        B = { ":CMake<cr>", "Create CMake project" },
+        b = { ":CMakeBuild<cr>", "Build CMake project" },
+        t = { ":Telescope cmake4vim select_build_type<cr>", "Select CMake build type" },
+        T = { ":Telescope cmake4vim select_target<cr>", "Select CMake target" },
+        k = { ":Telescope cmake4vim select_kit<cr>", "Select CMake kit" },
+        C = { ":CMakeClean<cr>", "Clean project" },
+        s = { ":CMakeCompileSource<cr>", "Compile current buffer" },
+        r = { ":CMakeResetAndReload<cr>", "Reset cmake cache" },
+        R = { ":CMakeReset<cr>", "Reset build folder completely" },
+        i = { ":CMakeInfo<cr>", "Info" }
+      }
+    }, { prefix = "<leader>", buffer = 0 })
   end,
+  lazy = true,
+  ft = { "cmake", "cpp", "c" },
 }
-
-
