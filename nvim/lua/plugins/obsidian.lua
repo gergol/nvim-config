@@ -5,6 +5,11 @@ local function create_new_note()
   vim.cmd('ObsidianNew ' .. user_input)
 end
 
+local function create_link_note()
+  local user_input = vim.fn.input('Enter title (optional): ')
+  vim.cmd('ObsidianLinkNew ' .. user_input)
+end
+
 local opts =
 {
   -- Optional, and for backward compatibility. Setting this will use it as the default workspace
@@ -196,19 +201,29 @@ return {
 
     local wk = require("which-key")
     wk.register({
-      ["b"] = {
+      ["o"] = {
         name = "Obsidian",
         ["o"] = { "<cmd>ObsidianOpen<cr>", "Open Obsidian" },
         ["n"] = { create_new_note, "New Note" },
         ["s"] = { "<cmd>ObsidianSearch<cr>", "Search" },
         ["b"] = { "<cmd>ObsidianBacklinks<cr>", "Backlinks" },
         ["f"] = { "<cmd>ObsidianFollowLink<cr>", "Follow Link" },
-        ["c"] = { "<cmd>ObsidianDailyNote<cr>", "Daily Note" },
+        ["t"] = { "<cmd>ObsidianToday<cr>", "Todays Daily Note" },
+        ["y"] = { "<cmd>ObsidianYesterday<cr>", "Yesterdays Daily Note" },
         ["q"] = { "<cmd>ObsidianQuickSwitch<cr>", "Quick Switch" },
-        ["t"] = { "<cmd>ObsidianToggleWorkspace<cr>", "Toggle Workspace" },
+        ["w"] = { "<cmd>ObsidianWorkspace<cr>", "Switch Workspace" },
       },
     }, {
-      prefix = "<leader>",
+      prefix = "<leader>", mode = "n"
+    })
+
+    wk.register({
+      ["o"] = {
+        name = "Obsidian",
+        ["l"] = { create_link_note, "Create Linked Note"},
+      },
+    }, {
+      prefix = "<leader>", mode = "v"
     })
   end,
 }
