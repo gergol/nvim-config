@@ -62,8 +62,8 @@ vim.keymap.set('n', "<F11>", require('dap').step_into)
 
 vim.keymap.set('n', "gh", "<cmd>ClangdSwitchSourceHeader<cr>")
 
-vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeFocusToggle<cr>")
-vim.keymap.set('n', '<leader>o', "<cmd>NeoTreeFocus<cr>")
+vim.keymap.set('n', '<leader>E', "<cmd>NeoTreeFocusToggle<cr>")
+vim.keymap.set('n', '<leader>e', "<cmd>NeoTreeFocus<cr>")
 -- paste in visual mode without overwriting paste register
 vim.keymap.set('v', 'p', '"_dP', { silent = true, noremap = true })
 
