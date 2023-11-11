@@ -40,7 +40,7 @@ local opts =
     -- Optional, if you want to change the date format of the default alias of daily notes.
     alias_format = "%B %-d, %Y",
     -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-    template = nil
+    template = "daily.md"
   },
 
   -- Optional, completion.
@@ -114,7 +114,14 @@ local opts =
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
     -- A map for custom variables, the key should be the variable and the value a function
-    substitutions = {}
+    substitutions = {
+      weekday_today = function()
+        return os.date("%a")
+      end,
+      date_today_long = function()
+        return os.date("%A, %B %d, %Y")
+      end,
+    }
   },
 
   -- Optional, customize the backlinks interface.
@@ -138,7 +145,7 @@ local opts =
   use_advanced_uri = false,
 
   -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-  open_app_foreground = false,
+  open_app_foreground = true,
 
   -- Optional, by default commands like `:ObsidianSearch` will attempt to use
   -- telescope.nvim, fzf-lua, and fzf.nvim (in that order), and use the
