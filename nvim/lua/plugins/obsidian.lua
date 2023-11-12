@@ -126,6 +126,12 @@ local opts =
       date_today_long = function()
         return os.date("%A, %B %d, %Y")
       end,
+      yesterday = function()
+        return os.date("%Y-%m-%d", os.time() - 86400)
+      end,
+      tomorrow = function()
+        return os.date("%Y-%m-%d", os.time() + 86400)
+      end
     }
   },
 
@@ -220,7 +226,7 @@ return {
     wk.register({
       ["o"] = {
         name = "Obsidian",
-        ["l"] = { create_link_note, "Create Linked Note"},
+        ["l"] = { create_link_note, "Create Linked Note" },
       },
     }, {
       prefix = "<leader>", mode = "v"
