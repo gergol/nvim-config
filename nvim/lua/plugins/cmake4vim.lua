@@ -49,8 +49,8 @@ return {
         R = { ":CMakeReset<cr>", "Reset build folder completely" },
         i = { ":CMakeInfo<cr>", "Info" }
       }
-    }, { prefix = "<leader>", buffer = 0 })
+    }, { prefix = "<leader>" })
   end,
   lazy = true,
-  ft = { "cmake", "cpp", "c" },
+  ft = { "cmake", "cpp", "c", "hpp" },
 }
