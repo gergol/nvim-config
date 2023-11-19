@@ -95,6 +95,7 @@ return {
         },
 
       },
+      jsonls = {},
       marksman = {},
       -- gopls = {},
       -- pyright = {},
