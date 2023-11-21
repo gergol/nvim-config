@@ -91,10 +91,10 @@ local function jump_to_element(element)
 	for _, win in ipairs(visible_wins) do
 		local buf = vim.api.nvim_win_get_buf(win)
 		if vim.bo[buf].filetype == element
-				-- As we do not know the filetype of the code window, we have to check if
-				-- we can find a window with a file type that is also in the dap.configurations
-				-- We simply assume, that this is the code window
-				or element == "code_win" and dap_configurations[vim.bo[buf].filetype] ~= nil
+			-- As we do not know the filetype of the code window, we have to check if
+			-- we can find a window with a file type that is also in the dap.configurations
+			-- We simply assume, that this is the code window
+			or element == "code_win" and dap_configurations[vim.bo[buf].filetype] ~= nil
 		then
 			vim.api.nvim_set_current_win(win)
 			return
@@ -108,6 +108,10 @@ wk.register({
 		name = "+Debug",
 
 		d = { require('dap').continue, "Start debugging" },
+		l = {
+			function() require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'cpp', 'c' } }) end,
+			"Load launch.json"
+		},
 		c = {
 			function() jump_to_element("code_win") end,
 			"Focus code",
