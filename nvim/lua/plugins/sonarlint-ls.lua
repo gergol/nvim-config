@@ -20,7 +20,7 @@ return {
          },
          filetypes = {
             -- Tested and working
-            'python',
+            -- 'python',
             'cpp',
             -- Requires nvim-jdtls, otherwise an error message will be printed
             -- 'java',
