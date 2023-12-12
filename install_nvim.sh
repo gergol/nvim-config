@@ -60,6 +60,7 @@ function check_and_install_nvm() {
         . $HOME/.bashrc
         nvm install node
     else
+        nvm install node
         return
     fi
 }
@@ -131,6 +132,8 @@ function check_and_activate_or_create_venv() {
         mkvirtualenv "$1"
     fi
 }
+
+sudo apt update
 
 source $HOME/.bashrc
 
