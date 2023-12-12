@@ -44,6 +44,26 @@ function check_and_install() {
     fi
 }
 
+function check_and_install_nvm() {
+    if echo $NVM_DIR | grep -q "nvm"; then
+        . $NVM_DIR/nvm.sh
+        . $HOME/.profile
+        . $HOME/.bashrc
+    fi
+    if ! command -v "nvm" >/dev/null 2>&1; then
+        echo >&2 "Installing nvm."
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+        source $HOME/.bashrc
+        echo $NVM_DIR
+        . $NVM_DIR/nvm.sh
+        . $HOME/.profile
+        . $HOME/.bashrc
+        nvm install node
+    else
+        return
+    fi
+}
+
 function clone_or_update_nvim_config() {
   local repo_url="https://github.com/gergol/nvim-config.git"
   local folder_name="$(basename "$repo_url" .git)"
@@ -112,12 +132,15 @@ function check_and_activate_or_create_venv() {
     fi
 }
 
+source $HOME/.bashrc
+
 check_and_install unzip
 check_and_install curl
 check_and_install wget
 check_and_install cmake
-check_and_install npm nodejs npm
 check_and_install fzf
+check_and_install ripgrep
+check_and_install_nvm
 
 install_nvim
 install_git
