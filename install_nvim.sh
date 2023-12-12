@@ -141,6 +141,7 @@ check_and_install cmake
 check_and_install fzf
 check_and_install ripgrep
 check_and_install_nvm
+check_and_install pip3 python3-pip
 
 install_nvim
 install_git
