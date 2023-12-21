@@ -14,10 +14,14 @@ return {
         -- in original vscode/launch.json the codelldb adapter is named lldb, so we need to copy the configuration over.
         local dap = require('dap')
         dap.adapters.lldb = dap.adapters.codelldb
+        -- same as above but for dbugpy / python
+        -- dap.adapters.python = dap.adapters.debugpy
+        -- print("Loaded dap config")
+        -- print(vim.inspect(config))
       end,
     }, -- load default handlers
     ensure_installed = {
-      "debugpy",
+      "python",
       "vscode-cpptools",
       "codelldb",
     },
