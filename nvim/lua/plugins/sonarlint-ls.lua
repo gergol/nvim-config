@@ -1,3 +1,4 @@
+return {}
 -- return {
 --    'schrieveslaach/sonarlint.nvim',
 --    url = 'https://gitlab.com/schrieveslaach/sonarlint.nvim',
