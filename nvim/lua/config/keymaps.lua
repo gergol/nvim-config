@@ -81,6 +81,11 @@ vim.keymap.set('n', '<c-q>', require('misc.toggle_qf').toggle_qf)
 
 vim.keymap.set('n', '<leader>m', ':MaximizerToggle!<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<C-z>', require('zen-mode').toggle)
+vim.keymap.set('i', '<C-z>', require('zen-mode').toggle)
+vim.keymap.set('v', '<C-z>', require('zen-mode').toggle)
+
+
 local wk = require('which-key')
 
 ---jump to the window of specified dapui element
