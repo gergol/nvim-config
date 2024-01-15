@@ -33,8 +33,8 @@ return {
         laststatus = 0,             -- turn off the statusline in zen mode
       },
       twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-      gitsigns = { enabled = false }, -- disables git signs
-      tmux = { enabled = false },   -- disables the tmux statusline
+      gitsigns = { enabled = true }, -- disables git signs
+      tmux = { enabled = true },   -- disables the tmux statusline
       -- this will change the font size on kitty when in zen mode
       -- to make this work, you need to set the following kitty options:
       -- - allow_remote_control socket-only
