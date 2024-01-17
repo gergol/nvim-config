@@ -124,6 +124,7 @@ return {
       ensure_installed = vim.tbl_keys(servers),
     }
 
+
     mason_lspconfig.setup_handlers {
       function(server_name)
         if server_name == 'clangd' then
@@ -142,6 +143,11 @@ return {
           }
         end
       end,
+    }
+    -- Important: sourcekit-lsp is not installably by mason, so we have to add it after the ensure_installed call
+    require('lspconfig').sourcekit.setup {
+      cmd = { "xcrun", "sourcekit-lsp" },
+      filetypes = { "swift", "objective-c", "objective-cpp" },
     }
   end,
 }
