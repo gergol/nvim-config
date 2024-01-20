@@ -1,6 +1,5 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<C-z>", "<nop>") -- disable tty ctrl-z suspend to prevent accidentaly closing vim)
-vim.keymap.set("n", "<C-s>", ":w<cr>")
 vim.keymap.set("n", "<leader>ww", ":w<cr>")
 vim.keymap.set("i", "jk", "<esc>:w!<cr>")
 -- disabe arrow keys
@@ -24,6 +23,11 @@ vim.keymap.set("n", "<leader>2", ":BufferLineCycleNext<cr>", { silent = true })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+vim.keymap.set("n", "<C-h>", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", { desc = "Replace word under cursor" })
+vim.keymap.set("v", "<C-h>", ":s/\\<<C-r><C-w>\\>//g<Left><Left>", { desc = "Replace word under cursor" })
+
+vim.keymap.set("n", "<C-s>", "xi", { desc = "Replace character under cursor" })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
