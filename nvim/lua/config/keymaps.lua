@@ -72,7 +72,8 @@ vim.keymap.set('n', '<leader>t', "<cmd>NeoTreeFocus<cr>")
 vim.keymap.set('v', 'p', '"_dP', { silent = true, noremap = true })
 
 vim.keymap.set('n', '<esc><esc>', '<cmd>nohlsearch<cr>')
-
+-- search with visual selection
+vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>" )
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
