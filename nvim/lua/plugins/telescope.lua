@@ -6,9 +6,15 @@ return  {
     require('telescope').setup {
       defaults = {
         mappings = {
+          n = {
+            ["<M-p>"] = require('telescope.actions.layout').toggle_preview,
+          },
           i = {
             ['<C-u>'] = false,
             ['<C-d>'] = false,
+            ['<Esc>'] = require('telescope.actions').close,
+            ["<C-h>"] = "which_key",
+            ["<M-p>"] = require('telescope.actions.layout').toggle_preview,
           },
         },
       },
