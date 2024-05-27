@@ -6,6 +6,7 @@ return {
     require('telescope').setup {
       defaults = {
         file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/", "%.ipynb" },
+        path_display = { 'truncate', filename_first = { reverse_directories = false }, },
         mappings = {
           n = {
             ["<M-p>"] = require('telescope.actions.layout').toggle_preview,
