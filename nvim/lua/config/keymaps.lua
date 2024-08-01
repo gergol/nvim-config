@@ -73,7 +73,7 @@ vim.keymap.set('v', 'p', '"_dP', { silent = true, noremap = true })
 
 vim.keymap.set('n', '<esc><esc>', '<cmd>nohlsearch<cr>')
 -- search with visual selection
-vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>" )
+vim.keymap.set('v', '/', "\"fy/\\V<C-R>f<CR>")
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
@@ -113,70 +113,49 @@ local function jump_to_element(element)
 	vim.notify(("element '%s' not found"):format(element), vim.log.levels.WARN)
 end
 
-wk.register({
-	d = {
-		name = "+Debug",
+wk.add(
 
-		d = { require('dap').continue, "Start debugging" },
-		l = {
-			function() require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'cpp', 'c' } }) end,
-			"Load launch.json"
-		},
-		c = {
-			function() jump_to_element("code_win") end,
-			"Focus code",
-		},
-		t = {
-			function() jump_to_element("dapui_console") end,
-			"Focus console",
-		},
-		r = {
-			function() jump_to_element("dap-repl") end,
-			"Focus REPL",
-		},
-		v = {
-			function() jump_to_element("dapui_scopes") end,
-			"Focus variables",
-		},
-		w = {
-			function() jump_to_element("dapui_watches") end,
-			"Focus watches",
-		},
-		s = {
-			function() jump_to_element("dapui_stacks") end,
-			"Fockus stack trace",
-		},
-		i = {
+	{
+		{ "<leader>d",  group = "Debug" },
+		{ "<leader>dc", function() jump_to_element("code_win") end, desc = "Focus code" },
+		{ "<leader>dd", require('dap').continue,                    desc = "Start debugging" },
+		{ "<leader>de", require('dap').disconnect,                  desc = "Stop debugging" },
+		{
+			"<leader>di",
 			function()
 				require("dapui").eval()
 				jump_to_element("dapui_hover")
 			end,
-			"Evaluate Expression",
-			silent = true,
+			desc = "Evaluate Expression"
 		},
-		e = { require('dap').disconnect, "Stop debugging" },
-	},
+		{
+			"<leader>dl",
+			function() require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'cpp', 'c' } }) end,
+			desc = "Load launch.json"
+		},
+		{
+			"<leader>dr",
+			function() jump_to_element("dap-repl") end
+			,
+			desc = "Focus REPL"
+		},
 
-}, { prefix = "<leader>" })
-
-
--- wk.register({
--- 	m = {
--- 		name = "+Markdown",
--- 		p = { ":MarkdownPreview<cr>", "Preview markdown" },
--- 	}
--- }, { prefix = "<leader>", buffer = 0 })
-
-wk.register({
-	f = {
-		name = "+Telescope",
-		-- actual keys are configured in telescope.lua
+		{ "<leader>ds", function() jump_to_element("dapui_stacks") end,  desc = "Fockus stack trace" },
+		{ "<leader>dt", function() jump_to_element("dapui_console") end, desc = "Focus console" },
+		{
+			"<leader>dv",
+			function() jump_to_element("dapui_scopes") end,
+			desc = "Focus variables"
+		},
+		{ "<leader>dw", function() jump_to_element("dapui_watches") end, desc = "Focus watches" },
 	}
-}, { prefix = "<leader>" })
+)
 
-wk.register({
-	h = {
-		name = "+Harpoon",
-		-- actual keys are configured in harpoon.lua
-	}
-}, { prefix = "<leader>" })
+
+wk.add({
+	{ "<leader>f", group = "Telescope" },
+})
+
+wk.add({
+	{ "<leader>h", group = "Harpoon" },
+})
