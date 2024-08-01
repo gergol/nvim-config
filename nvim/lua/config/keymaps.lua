@@ -52,6 +52,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>D', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 
+vim.keymap.set('n', "<F4>", function()
+	require('dap').run_last()
+end
+)
 vim.keymap.set('n', "<F5>", function()
 	require('dap').continue()
 end
@@ -151,7 +155,7 @@ wk.add(
 			desc = "Focus variables"
 		},
 		{ "<leader>dw", function() jump_to_element("dapui_watches") end, desc = "Focus watches" },
-		{ "<leader>dj", ":e .vscode/launch.json<cr>", desc = "Edit .vscode/launch.json"}
+		{ "<leader>dj", ":e .vscode/launch.json<cr>",                    desc = "Edit .vscode/launch.json" }
 	}
 )
 
