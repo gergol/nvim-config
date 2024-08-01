@@ -53,14 +53,14 @@ return {
         size = 0.33
       }, {
         elements = { {
-          id = "repl",
+          id = "console",
           size = 0.5
         }, {
-          id = "console",
+          id = "repl",
           size = 0.5
         } },
         position = "bottom",
-        size = 10
+        size = 0.25
       } },
       mappings = {
         edit = "e",
