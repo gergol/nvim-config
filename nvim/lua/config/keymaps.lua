@@ -151,6 +151,7 @@ wk.add(
 			desc = "Focus variables"
 		},
 		{ "<leader>dw", function() jump_to_element("dapui_watches") end, desc = "Focus watches" },
+		{ "<leader>dj", ":e .vscode/launch.json<cr>", desc = "Edit .vscode/launch.json"}
 	}
 )
 
