@@ -134,6 +134,9 @@ return {
             settings = servers[server_name],
             cmd = servers[server_name].cmd,
             init_options = servers[server_name].init_options,
+            flags = {
+              debounce_text_changes = 1000, -- 1 second debounce time
+            }
           }
         else
           require('lspconfig')[server_name].setup {
