@@ -23,10 +23,10 @@ return { -- Highlight, edit, and navigate code
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
+          init_selection = '<c-n>',
+          node_incremental = '<c-n>',
           scope_incremental = '<c-s>',
-          node_decremental = '<M-space>',
+          node_decremental = '<c-m>',
         },
       },
       textobjects = {
