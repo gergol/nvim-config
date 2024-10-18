@@ -41,6 +41,8 @@ return { -- Highlight, edit, and navigate code
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
             ["ac"] = "@class.outer",
+            ["ia"] = "@parameter.inner",
+            ["aa"] = "@parameter.outer",
             -- You can optionally set descriptions to the mappings (used in the desc parameter of
             -- nvim_buf_set_keymap) which plugins like which-key display
             ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
@@ -68,7 +70,7 @@ return { -- Highlight, edit, and navigate code
           -- * query_string: eg '@function.inner'
           -- * selection_mode: eg 'v'
           -- and should return true of false
-          include_surrounding_whitespace = true,
+          include_surrounding_whitespace = false,
         },
         move = {
           enable = true,
@@ -95,6 +97,9 @@ return { -- Highlight, edit, and navigate code
           goto_previous_start = {
             ["[m"] = "@function.outer",
             ["[["] = "@class.outer",
+            ["[o"] = "@loop.*",
+            ["[s"] = { query = "@scope", query_group = "locals", desc = "Prev scope" },
+            ["[z"] = { query = "@fold", query_group = "folds", desc = "Prev fold" },
             ["[a"] = "@parameter.inner",
           },
           goto_previous_end = {
