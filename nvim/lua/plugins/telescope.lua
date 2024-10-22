@@ -20,10 +20,18 @@ return {
           },
         },
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+            -- even more opts
+          }
+        }
+      }
     }
 
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require("telescope").load_extension("ui-select"))
     -- require("which-key").register({
     --   f = {
     --     name = "+Telescope",
