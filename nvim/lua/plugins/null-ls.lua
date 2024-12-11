@@ -42,7 +42,7 @@ local M = {
           extra_args = { "--line-length=120" },
         }),
         ls.builtins.diagnostics.flake8.with({
-          extra_args = { "--max-line-length=120" },
+          extra_args = { "--max-line-length=120", '--ignore=E501,E231' },
         }),
         -- ls.builtins.diagnostics.mypy.with({
         --   -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1208#issuecomment-1343562820
