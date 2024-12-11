@@ -7,9 +7,15 @@ return {
     "nvim-telescope/telescope.nvim",                                                       -- Optional: For using slash commands
     { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
     { "stevearc/dressing.nvim",                    opts = {} },                            -- Optional: Improves `vim.ui.select`
+    { 'echasnovski/mini.diff',                     version = '*' },
   },
   config = function()
     require("codecompanion").setup({
+      display = {
+        diff = {
+          provider = "mini_diff",
+        },
+      },
       adapters = {
         ollama = function()
           return require("codecompanion.adapters").extend("openai_compatible", {
@@ -20,7 +26,7 @@ return {
             },
             schema = {
               model = {
-                default = "llama3.2",
+                default = "qwen2.5-coder:32b",
               },
             },
           })
