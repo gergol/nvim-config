@@ -1,0 +1,12 @@
+{
+	"pyright ignore line": {
+		"prefix": "#type: ignore",
+		"body": "# type: ignore$0",
+		"description": "Ignore specific line diagnostic in pyright (ignore all is unsafe)",
+		"luasnip": {
+			"priority": 2000,
+			"autotrigger": false,
+			"wordTrig": false
+		}
+	}
+}
