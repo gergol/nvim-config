@@ -9,7 +9,7 @@ return {
 
     luasnip.config.setup {
       require("luasnip.loaders.from_vscode").lazy_load(),
-      require("luasnip.loaders.from_vscode").lazy_load({paths = {"./snippets"}})
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
     }
 
     cmp.setup {
@@ -48,13 +48,11 @@ return {
         end, { 'i', 's' }),
       },
       sources = cmp.config.sources({
-          { name = 'nvim_lsp',  max_item_count = 16, keyword_length = 3 },
-          { name = 'luasnip' },
-          { name = 'async_path' },
-        },
-        {
-          { name = 'buffer', max_item_count = 4, keyword_length = 3 },
-        }),
+        { name = 'nvim_lsp',   max_item_count = 16, keyword_length = 1, priority = 200 },
+        { name = 'luasnip',    max_item_count = 4,  keyword_length = 2, priority = 100 },
+        { name = 'async_path', max_item_count = 4,  keyword_length = 2, priority = 100 },
+        { name = 'buffer',     max_item_count = 4,  keyword_length = 2, priority = 150 },
+      }),
     }
   end
 
