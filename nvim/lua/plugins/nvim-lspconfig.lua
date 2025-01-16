@@ -35,7 +35,9 @@ return {
         end
         nmap('gD', vim.lsp.buf.declaration, "Goto Declaration")
         nmap('gd', vim.lsp.buf.definition, "Goto Definition")
-        nmap('gr', vim.lsp.buf.references, "Goto References")
+
+        nmap('gr', "<cmd>Telescope lsp_references<cr>", "Goto References")
+        -- nmap('gr', vim.lsp.buf.references, "Goto References")
         nmap('gi', vim.lsp.buf.implementation, "Goto Implementation")
         nmap('K', vim.lsp.buf.hover, "Hover")
         nmap('<leader>k', vim.lsp.buf.signature_help, "Signature Help")
@@ -47,8 +49,8 @@ return {
         nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
         nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
         nmap('<leader>lD', vim.lsp.buf.type_definition, "Type Definition")
-        nmap('<leader>lr', "<cmd>Telescope lsp_references<cr>", "List References")
-        nmap('<leader>lR', vim.lsp.buf.rename, "Rename")
+        -- nmap('<leader>lr', "<cmd>Telescope lsp_references<cr>", "List References")
+        nmap('<leader>lr', vim.lsp.buf.rename, "Rename")
         vim.keymap.set({ 'n', 'v' }, '<leader>la', function() vim.cmd('Lspsaga code_action') end,
           { buffer = ev.buffer, desc = "LSP: Code action" })
         nmap('<leader>lf', function()
