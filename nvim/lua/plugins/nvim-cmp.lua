@@ -6,6 +6,7 @@ return {
   config = function()
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local compare = require 'cmp.config.compare'
 
     luasnip.config.setup {
       require("luasnip.loaders.from_vscode").lazy_load(),
@@ -53,7 +54,21 @@ return {
         { name = 'async_path', max_item_count = 4,  keyword_length = 2, priority = 100 },
         { name = 'buffer',     max_item_count = 4,  keyword_length = 2, priority = 150 },
       }),
-    }
+      sorting = {
+        priority_weight = 1.0,
+        comparators = {
+          -- compare.score_offset, -- not good at all
+          compare.locality,
+          compare.recently_used,
+          compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+          compare.offset,
+          compare.order,
+          -- compare.scopes, -- what?
+          -- compare.sort_text,
+          -- compare.exact,
+          -- compare.kind,
+          -- compare.length, -- useless
+        } }, }
   end
 
 }
