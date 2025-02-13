@@ -60,6 +60,7 @@
   "rainbow_csv.nvim": { "branch": "main", "commit": "7f3fddfe813641035fac2cdf94c2ff69bb0bf0b9" },
   "refactoring.nvim": { "branch": "master", "commit": "2db6d378e873de31d18ade549c2edba64ff1c2e3" },
   "render-markdown.nvim": { "branch": "main", "commit": "e05a9f22f31c088ece3fa5928daf546a015b66ee" },
+  "snacks.nvim": { "branch": "main", "commit": "1491b543ef1d8a0eb29a6ebc35db4fb808dcb47f" },
   "telescope-cmake4vim.nvim": { "branch": "main", "commit": "1abaaad3d013915cf5cbb839919932eea676bc60" },
   "telescope-frecency.nvim": { "branch": "master", "commit": "5db9364a9dd94bd93dc97cdefd769d5fa6ab56e0" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "2a5ceff981501cff8f46871d5402cd3378a8ab6a" },
