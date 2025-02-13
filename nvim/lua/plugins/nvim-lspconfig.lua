@@ -33,10 +33,10 @@ return {
 
           vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
         end
-        nmap('gD', vim.lsp.buf.declaration, "Goto Declaration")
-        nmap('gd', vim.lsp.buf.definition, "Goto Definition")
+        -- nmap('gD', vim.lsp.buf.declaration, "Goto Declaration")
+        -- nmap('gd', vim.lsp.buf.definition, "Goto Definition")
 
-        nmap('gr', "<cmd>Telescope lsp_references<cr>", "Goto References")
+        -- nmap('gr', "<cmd>Telescope lsp_references<cr>", "Goto References")
         -- nmap('gr', vim.lsp.buf.references, "Goto References")
         nmap('gi', vim.lsp.buf.implementation, "Goto Implementation")
         nmap('K', vim.lsp.buf.hover, "Hover")
