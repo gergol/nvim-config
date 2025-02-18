@@ -58,7 +58,7 @@ return { -- Highlight, edit, and navigate code
           -- mapping query_strings to modes.
           selection_modes = {
             ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
+            ['@function.outer'] = 'V',  -- linewise
             ['@class.outer'] = '<c-v>', -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
@@ -77,7 +77,7 @@ return { -- Highlight, edit, and navigate code
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             ["]m"] = "@function.outer",
-            ["]]"] = { query = "@class.outer", desc = "Next class start" },
+            ["]c"] = { query = "@class.outer", desc = "Next class start" },
             --
             -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
             ["]o"] = "@loop.*",
@@ -96,7 +96,7 @@ return { -- Highlight, edit, and navigate code
           },
           goto_previous_start = {
             ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
+            ["[c"] = "@class.outer",
             ["[o"] = "@loop.*",
             ["[s"] = { query = "@scope", query_group = "locals", desc = "Prev scope" },
             ["[z"] = { query = "@fold", query_group = "folds", desc = "Prev fold" },
@@ -110,12 +110,12 @@ return { -- Highlight, edit, and navigate code
           -- Below will go to either the start or the end, whichever is closer.
           -- Use if you want more granular movements
           -- Make it even more gradual by adding multiple queries and regex.
-          goto_next = {
-            ["]d"] = "@conditional.outer",
-          },
-          goto_previous = {
-            ["[d"] = "@conditional.outer",
-          }
+          -- goto_next = {
+          --   ["]d"] = "@conditional.outer",
+          -- },
+          -- goto_previous = {
+          --   ["[d"] = "@conditional.outer",
+          -- }
         },
         swap = {
           enable = true,
