@@ -51,7 +51,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp',   max_item_count = 16, keyword_length = 1, priority = 200 },
         { name = 'luasnip',    max_item_count = 4,  keyword_length = 2, priority = 100 },
-        { name = 'async_path', max_item_count = 4,  keyword_length = 2, priority = 100 },
+        { name = 'async_path', max_item_count = 8,  keyword_length = 2, priority = 100 },
         { name = 'buffer',     max_item_count = 4,  keyword_length = 2, priority = 150 },
       }),
       sorting = {
