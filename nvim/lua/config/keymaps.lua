@@ -159,6 +159,11 @@ wk.add(
 	}
 )
 
+wk.add({
+	{ "<leader>cc",  group = "Code Companion" },
+	{ "<leader>ccc", "<cmd>CodeCompanionChat<cr>", desc = "Code Companion Chat" },
+	{ "<leader>cca", "<cmd>CodeCompanionActions<cr>", desc = "Code Companion Actions" },
+})
 
 wk.add({
 	{ "<leader>f", group = "Telescope" },
