@@ -2,7 +2,7 @@ local M = {
   "jay-babu/mason-null-ls.nvim",
   dependencies = {
     {
-      'jose-elias-alvarez/null-ls.nvim',
+      'nvimtools/none-ls.nvim',
       dependencies = { "nvim-lua/plenary.nvim" },
       config = function()
         -- Deliberately do nothing to set up null-ls later.
