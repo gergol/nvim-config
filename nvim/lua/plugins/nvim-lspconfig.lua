@@ -53,9 +53,9 @@ return {
         nmap('<leader>lr', vim.lsp.buf.rename, "Rename")
         vim.keymap.set({ 'n', 'v' }, '<leader>la', function() vim.cmd('Lspsaga code_action') end,
           { buffer = ev.buffer, desc = "LSP: Code action" })
-        nmap('<leader>lf', function()
-          vim.lsp.buf.format { async = true }
-        end, "Format Buffer")
+        -- nmap('<leader>lf', function()
+        --   vim.lsp.buf.format { async = true }
+        -- end, "Format Buffer")
         nmap('<leader>lo', "<cmd>AerialToggle!<cr>", "Symbol Outline")
       end,
     })
