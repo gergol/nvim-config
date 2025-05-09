@@ -1,4 +1,4 @@
-require('config.options')
+require 'config.options'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
-require('lazy').setup("plugins", {
+require('lazy').setup('plugins', {
   change_detection = {
     -- automatically check for config file changes and reload the ui
     enabled = true,
@@ -26,7 +26,13 @@ require('lazy').setup("plugins", {
   },
 })
 
-require('config.keymaps')
+require 'config.keymaps'
+
+-- [[ Configure LSP Servers ]]
+
+-- vim.lsp.enable 'clangd'
+-- vim.lsp.enable 'lua_ls'
+-- ,'jsonls','marksman','pyright')
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -35,7 +41,7 @@ require('config.keymaps')
 -- Diagnostic keymaps
 
 -- nvim-cmp setup
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme 'catppuccin-mocha'
 -- vim.cmd.colorscheme "tokyonight"
 -- -- Unstaged changes
 -- The line beneath this is called `modeline`. See `:help modeline`
