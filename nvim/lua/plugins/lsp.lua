@@ -72,40 +72,173 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim' }, -- Mason provides the servers
     config = function()
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-        callback = function(ev)
-          -- Enable completion triggered by <c-x><c-o>
-          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+      -- vim.api.nvim_create_autocmd('LspAttach', {
+      --   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+      --   callback = function(ev)
+      --     -- Enable completion triggered by <c-x><c-o>
+      --     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+      --
+      --     -- Buffer local mappings.
+      --     -- See `:help vim.lsp.*` for documentation on any of the below functions
+      --     local nmap = function(keys, func, desc)
+      --       if desc then
+      --         desc = 'LSP: ' .. desc
+      --       end
+      --
+      --       vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
+      --     end
+      --     nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
+      --     nmap('K', vim.lsp.buf.hover, 'Hover')
+      --     nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Help')
+      --     nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder')
+      --     nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder')
+      --     nmap('<leader>lwl', function()
+      --       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      --     end, 'List Workspace Folders')
+      --     nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+      --     nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+      --     nmap('<leader>lD', vim.lsp.buf.type_definition, 'Type Definition')
+      --     nmap('<leader>lr', vim.lsp.buf.rename, 'Rename')
+      --     vim.keymap.set({ 'n', 'v' }, '<leader>la', function()
+      --       vim.cmd 'Lspsaga code_action'
+      --     end, { buffer = ev.buffer, desc = 'LSP: Code action' })
+      --     -- nmap('<leader>lf', function()
+      --     --   vim.lsp.buf.format { async = true }
+      --     -- end, "Format Buffer")
+      --     nmap('<leader>lo', '<cmd>AerialToggle!<cr>', 'Symbol Outline')
+      --   end,
+      -- })
 
-          -- Buffer local mappings.
-          -- See `:help vim.lsp.*` for documentation on any of the below functions
-          local nmap = function(keys, func, desc)
-            if desc then
-              desc = 'LSP: ' .. desc
+      -- This function will be called by the LspAttach autocommand
+      -- client: The LSP client object that has attached.
+      -- bufnr: The buffer number the client has attached to.
+      local function on_lsp_attach(client, bufnr)
+        -- Optional: Print a message to confirm attachment and client name
+        -- Inside your on_lsp_attach function:
+
+        local pid_info = client.pid and ('PID: ' .. tostring(client.pid)) or 'PID: N/A'
+        vim.notify('LSP attached: ' .. client.name .. ' (buffer: ' .. bufnr .. ', ' .. pid_info .. ')', vim.log.levels.INFO, { title = 'LSP' })
+        -- Enable completion triggered by <c-x><c-o>
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        -- Enable tag navigation (e.g., :tjump, Ctrl-]) to use LSP
+        vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+
+        -- Helper function for setting buffer-local keymaps
+        local map = function(mode, lhs, rhs, desc)
+          local opts = { buffer = bufnr, silent = true, noremap = true }
+          if desc then
+            opts.desc = 'LSP: ' .. desc
+          end
+          vim.keymap.set(mode, lhs, rhs, opts)
+        end
+
+        -- Common LSP Keymaps
+
+        local map = function(mode, lhs, rhs, desc)
+          local opts = { buffer = bufnr, silent = true, noremap = true }
+          if desc then
+            opts.desc = 'LSP: ' .. desc
+          end
+          vim.keymap.set(mode, lhs, rhs, opts)
+        end
+        map('n', 'gi', vim.lsp.buf.implementation, 'Goto Implementation')
+        map('n', 'K', vim.lsp.buf.hover, 'Hover')
+        map('n', '<leader>k', vim.lsp.buf.signature_help, 'Signature Help')
+        map('n', '<leader>lwa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder')
+        map('n', '<leader>lwr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder')
+        map('n', '<leader>lwl', function()
+          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, 'List Workspace Folders')
+        map('n', '<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+        map('n', '<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+        map('n', '<leader>lD', vim.lsp.buf.type_definition, 'Type Definition')
+        map('n', '<leader>lr', vim.lsp.buf.rename, 'Rename')
+        vim.keymap.set({ 'n', 'v' }, '<leader>la', function()
+          vim.cmd 'Lspsaga code_action'
+        end, { buffer = bufnr, desc = 'LSP: Code action' })
+        -- nmap('<leader>lf', function()
+        --   vim.lsp.buf.format { async = true }
+        -- end, "Format Buffer")
+        map('n', '<leader>lo', '<cmd>AerialToggle!<cr>', 'Symbol Outline')
+        -- Signature Help (manual trigger in insert mode)
+        if client.supports_method 'textDocument/signatureHelp' then
+          map('i', '<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+        end
+
+        -- Document Highlights (highlight symbols under cursor on hold)
+        if client.supports_method 'textDocument/documentHighlight' then
+          -- Create a unique augroup for this buffer's highlight events
+          local highlight_augroup_name = 'LspDocumentHighlights_buf_' .. bufnr
+          local highlight_augroup = vim.api.nvim_create_augroup(highlight_augroup_name, { clear = true })
+
+          vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = highlight_augroup,
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+            desc = 'LSP: Document Highlight',
+          })
+          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            group = highlight_augroup,
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+            desc = 'LSP: Clear Document Highlight',
+          })
+        end
+
+        -- Add any other general LSP configurations or keymaps you want for all servers here
+        vim.notify(client.name .. ' setup complete for buffer ' .. bufnr, vim.log.levels.DEBUG, { title = 'LSP Attach' })
+      end
+
+      -- Create an autocommand group to ensure it can be cleared on re-sourcing the config.
+      -- Choose a unique name for your augroup.
+      local lsp_attach_augroup = vim.api.nvim_create_augroup('UserLspAttachConfig', { clear = true })
+
+      -- Define the autocommand for the LspAttach event
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = lsp_attach_augroup, -- Assign to the created group
+        desc = 'Apply global LSP settings and keymaps on LspAttach',
+        callback = function(ev)
+          -- ev.buf is the buffer number where the LSP client attached
+          -- ev.client_id is the ID of the LSP client that attached
+
+          -- Retrieve the client object using its ID
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+          if client then
+            -- Call your global on_lsp_attach function, passing the client object and buffer number
+            -- Make sure 'on_lsp_attach' is accessible here (e.g., defined in the same file or required)
+            on_lsp_attach(client, ev.buf)
+          else
+            vim.notify('LspAttach: Could not retrieve client for ID ' .. tostring(ev.data.client_id), vim.log.levels.WARN, { title = 'LSP Error' })
+          end
+        end,
+      })
+
+      -- switch betweensource and header
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'c', 'cpp', 'objc', 'objcpp' },
+        callback = function()
+          vim.keymap.set('n', 'gh', function()
+            local clients = vim.lsp.get_active_clients { bufnr = 0, name = 'clangd' }
+            if #clients == 0 then
+              vim.notify('No clangd LSP client attached to this buffer', vim.log.levels.ERROR)
+              return
             end
 
-            vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
-          end
-          nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
-          nmap('K', vim.lsp.buf.hover, 'Hover')
-          nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Help')
-          nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder')
-          nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder')
-          nmap('<leader>lwl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, 'List Workspace Folders')
-          nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-          nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-          nmap('<leader>lD', vim.lsp.buf.type_definition, 'Type Definition')
-          nmap('<leader>lr', vim.lsp.buf.rename, 'Rename')
-          vim.keymap.set({ 'n', 'v' }, '<leader>la', function()
-            vim.cmd 'Lspsaga code_action'
-          end, { buffer = ev.buffer, desc = 'LSP: Code action' })
-          -- nmap('<leader>lf', function()
-          --   vim.lsp.buf.format { async = true }
-          -- end, "Format Buffer")
-          nmap('<leader>lo', '<cmd>AerialToggle!<cr>', 'Symbol Outline')
+            local params = { uri = vim.uri_from_bufnr(0) }
+            clients[1].request('textDocument/switchSourceHeader', params, function(err, result)
+              if err then
+                vim.notify('Error switching: ' .. tostring(err), vim.log.levels.ERROR)
+                return
+              end
+
+              if result then
+                vim.cmd('edit ' .. vim.uri_to_fname(result))
+              else
+                vim.notify('No corresponding file found', vim.log.levels.WARN)
+              end
+            end, 0)
+          end, { buffer = true, desc = 'Switch between source/header' })
         end,
       })
     end,
