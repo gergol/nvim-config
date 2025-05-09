@@ -72,43 +72,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim' }, -- Mason provides the servers
     config = function()
-      -- vim.api.nvim_create_autocmd('LspAttach', {
-      --   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      --   callback = function(ev)
-      --     -- Enable completion triggered by <c-x><c-o>
-      --     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-      --
-      --     -- Buffer local mappings.
-      --     -- See `:help vim.lsp.*` for documentation on any of the below functions
-      --     local nmap = function(keys, func, desc)
-      --       if desc then
-      --         desc = 'LSP: ' .. desc
-      --       end
-      --
-      --       vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
-      --     end
-      --     nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
-      --     nmap('K', vim.lsp.buf.hover, 'Hover')
-      --     nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Help')
-      --     nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder')
-      --     nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder')
-      --     nmap('<leader>lwl', function()
-      --       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      --     end, 'List Workspace Folders')
-      --     nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-      --     nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-      --     nmap('<leader>lD', vim.lsp.buf.type_definition, 'Type Definition')
-      --     nmap('<leader>lr', vim.lsp.buf.rename, 'Rename')
-      --     vim.keymap.set({ 'n', 'v' }, '<leader>la', function()
-      --       vim.cmd 'Lspsaga code_action'
-      --     end, { buffer = ev.buffer, desc = 'LSP: Code action' })
-      --     -- nmap('<leader>lf', function()
-      --     --   vim.lsp.buf.format { async = true }
-      --     -- end, "Format Buffer")
-      --     nmap('<leader>lo', '<cmd>AerialToggle!<cr>', 'Symbol Outline')
-      --   end,
-      -- })
-
       -- This function will be called by the LspAttach autocommand
       -- client: The LSP client object that has attached.
       -- bufnr: The buffer number the client has attached to.
@@ -117,22 +80,11 @@ return {
         -- Inside your on_lsp_attach function:
 
         local pid_info = client.pid and ('PID: ' .. tostring(client.pid)) or 'PID: N/A'
-        vim.notify('LSP attached: ' .. client.name .. ' (buffer: ' .. bufnr .. ', ' .. pid_info .. ')', vim.log.levels.INFO, { title = 'LSP' })
+        -- vim.notify('LSP attached: ' .. client.name .. ' (buffer: ' .. bufnr .. ', ' .. pid_info .. ')', vim.log.levels.INFO, { title = 'LSP' })
         -- Enable completion triggered by <c-x><c-o>
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
         -- Enable tag navigation (e.g., :tjump, Ctrl-]) to use LSP
         vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
-
-        -- Helper function for setting buffer-local keymaps
-        local map = function(mode, lhs, rhs, desc)
-          local opts = { buffer = bufnr, silent = true, noremap = true }
-          if desc then
-            opts.desc = 'LSP: ' .. desc
-          end
-          vim.keymap.set(mode, lhs, rhs, opts)
-        end
-
-        -- Common LSP Keymaps
 
         local map = function(mode, lhs, rhs, desc)
           local opts = { buffer = bufnr, silent = true, noremap = true }
@@ -186,7 +138,7 @@ return {
         end
 
         -- Add any other general LSP configurations or keymaps you want for all servers here
-        vim.notify(client.name .. ' setup complete for buffer ' .. bufnr, vim.log.levels.DEBUG, { title = 'LSP Attach' })
+        -- vim.notify(client.name .. ' setup complete for buffer ' .. bufnr, vim.log.levels.DEBUG, { title = 'LSP Attach' })
       end
 
       -- Create an autocommand group to ensure it can be cleared on re-sourcing the config.
