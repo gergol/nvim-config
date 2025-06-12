@@ -46,3 +46,18 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 -- -- Unstaged changes
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Allow clipboard acces through SSH when in docker
+if os.getenv 'SSH_TTY' or os.getenv 'DOCKER_CONTAINER' then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+      ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+      ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+    },
+  }
+end
