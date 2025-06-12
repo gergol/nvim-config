@@ -46,9 +46,12 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 -- -- Unstaged changes
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- Detect SSH or Docker environment for OSC 52 clipboard
+local function needs_osc52()
+  return os.getenv 'SSH_TTY' or os.getenv 'SSH_CLIENT' or os.getenv 'SSH_CONNECTION' or os.getenv 'DOCKER_CONTAINER'
+end
 
--- Allow clipboard acces through SSH when in docker
-if os.getenv 'SSH_TTY' or os.getenv 'DOCKER_CONTAINER' then
+if needs_osc52() then
   vim.g.clipboard = {
     name = 'OSC 52',
     copy = {
@@ -60,4 +63,5 @@ if os.getenv 'SSH_TTY' or os.getenv 'DOCKER_CONTAINER' then
       ['*'] = require('vim.ui.clipboard.osc52').paste '*',
     },
   }
+  vim.opt.clipboard = 'unnamedplus'
 end
