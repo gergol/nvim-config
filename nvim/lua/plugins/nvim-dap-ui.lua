@@ -87,14 +87,14 @@ return {
       dapui.open()
       -- vim.cmd.NeoTreeClose()
     end
-    -- dap.listeners.before.event_terminated["dapui_config"] = function()
-    --   dapui.close()
-    --   -- vim.cmd.NeoTreeShow()
-    -- end
-    -- dap.listeners.before.event_exited["dapui_config"] = function()
-    --   dapui.close()
-    --   -- vim.cmd.NeoTreeShow()
-    -- end
+    dap.listeners.before.event_terminated["dapui_config"] = function()
+      dapui.close()
+      -- vim.cmd.NeoTreeShow()
+    end
+    dap.listeners.before.event_exited["dapui_config"] = function()
+      dapui.close()
+      -- vim.cmd.NeoTreeShow()
+    end
     vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
     vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })
   end,
