@@ -28,6 +28,7 @@ return {
         'pyright', -- for pyright.lua
         'marksman', -- for marksman.lua
         'clangd', -- for clangd.lua
+        'cmake', -- for cmake.lua
         -- Add any other LSP servers you use
       }
 
