@@ -21,7 +21,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       json = { 'jsonls' },
-      python = { 'isort', 'black' },
+      python = { 'black' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
     },
     -- Set default options
