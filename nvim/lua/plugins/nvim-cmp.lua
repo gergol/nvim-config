@@ -1,24 +1,29 @@
 return {
   -- Autocompletion
   'hrsh7th/nvim-cmp',
-  dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'FelipeLema/cmp-async-path', "rafamadriz/friendly-snippets" },
+  dependencies = {
+    'hrsh7th/cmp-nvim-lsp',
+    --[[ 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', ]]
+    'FelipeLema/cmp-async-path',
+    'rafamadriz/friendly-snippets',
+  },
 
   config = function()
     local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
+    -- local luasnip = require 'luasnip'
     local compare = require 'cmp.config.compare'
 
-    luasnip.config.setup {
-      require("luasnip.loaders.from_vscode").lazy_load(),
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
-    }
+    -- luasnip.config.setup {
+    --   require('luasnip.loaders.from_vscode').lazy_load(),
+    --   require('luasnip.loaders.from_vscode').lazy_load { paths = { './snippets' } },
+    -- }
 
     cmp.setup {
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
+      -- snippet = {
+      --   expand = function(args)
+      --     luasnip.lsp_expand(args.body)
+      --   end,
+      -- },
       mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -48,12 +53,12 @@ return {
           end
         end, { 'i', 's' }),
       },
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp',   max_item_count = 16, keyword_length = 1, priority = 200 },
-        { name = 'luasnip',    max_item_count = 4,  keyword_length = 2, priority = 100 },
-        { name = 'async_path', max_item_count = 8,  keyword_length = 1, priority = 100 },
-        { name = 'buffer',     max_item_count = 4,  keyword_length = 2, priority = 150 },
-      }),
+      sources = cmp.config.sources {
+        { name = 'nvim_lsp', max_item_count = 16, keyword_length = 1, priority = 200 },
+        { name = 'luasnip', max_item_count = 4, keyword_length = 2, priority = 100 },
+        { name = 'async_path', max_item_count = 8, keyword_length = 1, priority = 100 },
+        { name = 'buffer', max_item_count = 4, keyword_length = 2, priority = 150 },
+      },
       sorting = {
         priority_weight = 1.0,
         comparators = {
@@ -68,7 +73,8 @@ return {
           -- compare.exact,
           -- compare.kind,
           -- compare.length, -- useless
-        } }, }
-  end
-
+        },
+      },
+    }
+  end,
 }
