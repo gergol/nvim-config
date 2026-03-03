@@ -6,33 +6,33 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
-        file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/", "%.ipynb" },
-        path_display = { 'truncate', filename_first = { reverse_directories = false }, },
+        file_ignore_patterns = { '^./.git/', '^node_modules/', '^vendor/', '%.ipynb', '^ext/', '^3rdparty/' },
+        path_display = { 'truncate', filename_first = { reverse_directories = false } },
         mappings = {
           n = {
-            ["<M-p>"] = require('telescope.actions.layout').toggle_preview,
+            ['<M-p>'] = require('telescope.actions.layout').toggle_preview,
           },
           i = {
             ['<C-u>'] = false,
             ['<C-d>'] = false,
             ['<Esc>'] = require('telescope.actions').close,
-            ["<C-h>"] = "which_key",
-            ["<M-p>"] = require('telescope.actions.layout').toggle_preview,
+            ['<C-h>'] = 'which_key',
+            ['<M-p>'] = require('telescope.actions.layout').toggle_preview,
           },
         },
       },
       extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown {
+        ['ui-select'] = {
+          require('telescope.themes').get_dropdown {
             -- even more opts
-          }
-        }
-      }
+          },
+        },
+      },
     }
 
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
-    pcall(require("telescope").load_extension("ui-select"))
+    pcall(require('telescope').load_extension 'ui-select')
     -- require("which-key").register({
     --   f = {
     --     name = "+Telescope",
@@ -74,23 +74,73 @@ return {
   end,
 
   keys = {
-    { '<leader>fF', function() require('telescope.builtin').git_files() end,   desc = 'Search [G]it [F]iles' },
-    { '<leader>ff', function() require('telescope.builtin').find_files() end,  desc = '[S]earch [F]iles' },
-    { '<leader>fh', function() require('telescope.builtin').help_tags() end,   desc = '[S]earch [H]elp' },
-    { '<leader>fw', function() require('telescope.builtin').grep_string() end, desc = '[S]earch current [W]ord' },
-    { '<leader>fg', function() require('telescope.builtin').live_grep() end,   desc = '[S]earch by [G]rep' },
-    { '<leader>fd', function() require('telescope.builtin').diagnostics() end, desc = '[S]earch [D]iagnostics' },
+    {
+      '<leader>fF',
+      function()
+        require('telescope.builtin').git_files()
+      end,
+      desc = 'Search [G]it [F]iles',
+    },
+    {
+      '<leader>ff',
+      function()
+        require('telescope.builtin').find_files()
+      end,
+      desc = '[S]earch [F]iles',
+    },
+    {
+      '<leader>fh',
+      function()
+        require('telescope.builtin').help_tags()
+      end,
+      desc = '[S]earch [H]elp',
+    },
+    {
+      '<leader>fw',
+      function()
+        require('telescope.builtin').grep_string()
+      end,
+      desc = '[S]earch current [W]ord',
+    },
+    {
+      '<leader>fg',
+      function()
+        require('telescope.builtin').live_grep()
+      end,
+      desc = '[S]earch by [G]rep',
+    },
+    {
+      '<leader>fd',
+      function()
+        require('telescope.builtin').diagnostics()
+      end,
+      desc = '[S]earch [D]iagnostics',
+    },
 
-    { '<leader>?',  function() require('telescope.builtin').oldfiles() end,    desc = '[?] Find recently opened files' },
-    { '<leader>fb', function() require('telescope.builtin').buffers() end,     desc = '[b] Find existing buffers' },
-    { '<leader>/', function()
-      -- You can pass additional configuration to telescope to change theme, layout, etc.
-      require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
-    end, { desc = '[/] Fuzzily search in current buffer' },
-
+    {
+      '<leader>?',
+      function()
+        require('telescope.builtin').oldfiles()
+      end,
+      desc = '[?] Find recently opened files',
+    },
+    {
+      '<leader>fb',
+      function()
+        require('telescope.builtin').buffers()
+      end,
+      desc = '[b] Find existing buffers',
+    },
+    {
+      '<leader>/',
+      function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+          winblend = 10,
+          previewer = false,
+        })
+      end,
+      { desc = '[/] Fuzzily search in current buffer' },
     },
   },
 }
