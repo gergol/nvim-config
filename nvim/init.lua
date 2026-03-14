@@ -65,3 +65,38 @@ if needs_osc52() then
   }
   vim.opt.clipboard = 'unnamedplus'
 end
+
+-- Improve agentic coding with e.g. claude code by automatically reloading buffers
+-- 1. Enable autoread so Neovim reloads the file if it hasn't been modified in the buffer
+vim.opt.autoread = true
+
+-- 2. Trigger checktime on specific events to catch external changes
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  group = vim.api.nvim_create_augroup('AutoCheckTime', { clear = true }),
+  pattern = '*',
+  callback = function()
+    -- Only check if we are in a normal buffer (not a terminal or command window)
+    if vim.fn.getcmdwintype() == '' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+-- Create a background timer to check for disk changes every 1000ms
+local timer = vim.loop.new_timer()
+timer:start(
+  1000,
+  1000,
+  vim.schedule_wrap(function()
+    -- Only run checktime if we aren't currently typing or in a special buffer
+    if vim.api.nvim_get_mode().mode == 'n' and vim.bo.buftype == '' then
+      vim.cmd 'checktime'
+    end
+  end)
+)
+-- 3. Optional: Notification when a file is reloaded
+vim.api.nvim_create_autocmd('FileChangedShellPost', {
+  callback = function()
+    vim.notify('File changed on disk. Buffer reloaded!', vim.log.levels.INFO)
+  end,
+})
+--------------------------------------------------------------------------------
