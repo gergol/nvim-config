@@ -138,13 +138,6 @@ wk.add {
     desc = 'Evaluate Expression',
   },
   {
-    '<leader>dl',
-    function()
-      require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'cpp', 'c' } })
-    end,
-    desc = 'Load launch.json',
-  },
-  {
     '<leader>dr',
     function()
       jump_to_element 'dap-repl'
