@@ -4,7 +4,6 @@ return {
     -- "mfussenegger/nvim-dap-python",
   },
   config = function()
-    require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'cpp', 'c' }, python = { 'python' } })
     require('dap').defaults.fallback.exception_breakpoints = { 'uncaught' }
     -- local dap_python = require("dap-python")
     -- -- dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python") -- created seperate venv for debugpy
@@ -16,5 +15,5 @@ return {
     -- vim.keymap.set("n", "<leader>dn", dap_python.test_method, {})
     -- vim.keymap.set("n", "<leader>df", dap_python.test_class, {})
     -- vim.keymap.set("v", "<leader>dS", dap_python.debug_selection, {})
-  end
+  end,
 }
