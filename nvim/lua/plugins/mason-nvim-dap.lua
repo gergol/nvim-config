@@ -16,8 +16,8 @@ return {
         dap.adapters.lldb = dap.adapters.codelldb
         dap.adapters.debugpy = dap.adapters.python
         -- same as above but for dbugpy / python
-        print 'Loaded dap config'
-        print(dap.adapters.debugpy)
+        -- print 'Loaded dap config'
+        -- print(dap.adapters.debugpy)
         -- print(vim.inspect(config))
       end,
     }, -- load default handlers
