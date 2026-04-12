@@ -2,3 +2,6 @@ autoload/
 nvim/plugin
 nvim/old
 nvim/.session.vim
+nvim/.bg-shell
+nvim/.gsd
+nvim/.bg-shell
